@@ -1,6 +1,7 @@
 import React from 'react';
 
 class SessionForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +39,7 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Yummaly!
+          Welcome to Yumaly!
           <br/>
           Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}

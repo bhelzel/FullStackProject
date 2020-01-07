@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactDOM from 'readt-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import configureStore from './store/configureStore'
-
+import configureStore from './store/store';
+import * as APIUtils from './util/session_api_util';
+import Root from './components/Root'
 document.addEventListener('DOMContentLoaded', () => {
+
   let store;
   if (window.currentUser) {
     const preloadedState = {
@@ -16,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     delete window.currentUser;
   } else {
     store = configureStore();
-  }  
-  const root = document.getElementById('root')
+  }
+  const root = document.getElementById('root');
+  window.signup = APIUtils.signup;
+  window.login = APIUtils.login;
+  window.logout = APIUtils.logout;
   ReactDOM.render(<Root store={store} />, root);
 });
