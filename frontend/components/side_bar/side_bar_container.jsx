@@ -1,8 +1,13 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import SideBar from './side_bar';
+
+// const mapStateToProps = state => {
+//   return {
+//     currentUser: this.state.entities.users;
+//   }
+// }
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -10,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapDispatchToProps)(SideBar);
+export default connect(null, mapDispatchToProps)(SideBar);
