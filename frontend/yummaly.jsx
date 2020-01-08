@@ -23,5 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signup = APIUtils.signup;
   window.login = APIUtils.login;
   window.logout = APIUtils.logout;
+  window.store = store;
   ReactDOM.render(<Root store={store} />, root);
 });

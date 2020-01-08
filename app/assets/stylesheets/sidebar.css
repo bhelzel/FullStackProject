@@ -1,0 +1,14 @@
+.sidebar {
+  position: fixed;
+  display: grid;
+}
+
+.sidebar-links {
+  padding: 10px;
+  color: aqua;
+}
+
+.link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
