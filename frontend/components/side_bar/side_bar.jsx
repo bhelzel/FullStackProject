@@ -2,29 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions'
 
-class SideBar extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
-    console.log(this.props);
-    return (
-      <div className="sidebar">
-        <Link to="/" className="header-link">
-          <h1 id="yummaly-title">Yummaly</h1>
-        </Link>
-        <div className="sidebar-links">
-          <Link to="/signup" className="link">Sign Up</Link>
-          <br/>
-          <Link to="/login" className="link">Log In</Link>
-          <br/>
-          <button onClick={this.props.processForm} value="Log Out">Log Out</button>
-        </div>
-      </div>
-    )
-  }
-}
+const SideBar = ({currentUser, logout, openModal}) => {
+
+  const sessionLinks = () => (
+    <nav className="login-signup">
+      <button onClick={() => openModal('login')}>Login</button>
+      &nbsp;or&nbsp;
+      <button onClick={() => openModal('signup')}>Signup</button>
+    </nav>
+  );
+  const personalGreeting = () => (
+    <hgroup className="header-group">
+      <h2 className="header-name">Hi, {currentUser.username}!</h2>
+      <button className="header-button" onClick={logout}>Log Out</button>
+    </hgroup>
+  );
+
+  return (
+    currentUser ?
+    personalGreeting(currentUser, logout) :
+    sessionLinks()
+  );
+};
 
 export default SideBar;

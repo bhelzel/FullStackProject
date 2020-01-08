@@ -2,17 +2,19 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { logout } from '../../actions/session_actions';
 import SideBar from './side_bar';
+import { openModal } from '../../actions/modal_actions';
 
-// const mapStateToProps = state => {
-//   return {
-//     currentUser: this.state.entities.users;
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    currentUser: state.session.currentUser
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    openModal: modal => dispatch(openModal(modal))
   }
 };
 
-export default connect(null, mapDispatchToProps)(SideBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
