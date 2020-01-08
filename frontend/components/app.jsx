@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 import {AuthRoute} from '../util/route_util';
-import SignUpFormContainer from './session_form/signup_form_container';
+import SignUpFormContainer from './signup_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import Yummaly from './session_form/yummaly';
 import SideBarContainer from './side_bar/side_bar_container';

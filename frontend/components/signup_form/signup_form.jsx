@@ -5,7 +5,6 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
       email: '',
       password: ''
     };
@@ -40,39 +39,29 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-box">
-          Welcome to Yumaly!
+          <h3 className="yum-logo">Yummaly!</h3>
           <br/>
-          Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
           <div className="signup-form">
-            <br/>
-            <label>Username:
+            <label>Email:
               <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
+                value={this.state.email}
+                onChange={this.update('email')}
                 className="signup-input"
-                />
-              </label>
+              />
+            </label>
               <br/>
-              <label>Password:
+            <label>Password:
                 <input type="password"
-                  value={this.state.password}
+                value={this.state.password}
                   onChange={this.update('password')}
-                  className="signup-input"
-                />
-              </label>
-              <label>Email:
-                <input type="text"
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                  className="signup-input"
-                />
-              </label>
-              <br/>
-              <input className="signup-submit" type="submit" value={this.props.formType} />
-            </div>
-          </form>
-        </div>
+                className="signup-input"
+              />
+            </label>
+            <input className="signup-submit" type="submit" value={this.props.formType} />
+          </div>
+        </form>
+      </div>
       );
     }
   }

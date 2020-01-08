@@ -7,9 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-/.button_modal
-/.button_modal_container
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
