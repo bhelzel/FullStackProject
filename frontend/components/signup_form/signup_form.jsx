@@ -20,7 +20,8 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+      .then(this.props.closeModal());
   }
 
   renderErrors() {
@@ -39,26 +40,28 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-box">
-          <h3 className="yum-logo">Yummaly!</h3>
-          <br/>
+          <h1 className="yum-logo">Yummaly!</h1>
+          <h2>You're almost there!</h2>
           {this.renderErrors()}
           <div className="signup-form">
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="signup-input"
-              />
-            </label>
-              <br/>
-            <label>Password:
-                <input type="password"
-                value={this.state.password}
-                  onChange={this.update('password')}
-                className="signup-input"
-              />
-            </label>
-            <input className="signup-submit" type="submit" value={this.props.formType} />
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
+              className="signup-input"
+              placeholder="Email Address"
+            />
+            <br/>
+            <input type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              className="signup-input"
+              placeholder="Password"
+            />
+            <br/>
+            <input
+              className="signup-submit"
+              type="submit"
+              value="Sign Up!" />
           </div>
         </form>
       </div>

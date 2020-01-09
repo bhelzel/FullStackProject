@@ -11,10 +11,15 @@ const SideBar = ({currentUser, logout, openModal}) => {
       <h3 className="yum-logo">Yummaly!</h3>
       <div className="line-div"></div>
       <nav className="login-signup">
-        <button onClick={() => openModal('button')} className="login-signup-button">Sign Up / Log In</button>
+        <button
+          onClick={() => openModal('button')}
+          className="login-signup-button">
+          Sign Up / Log In
+        </button>
       </nav>
     </div>
   );
+  
   const personalGreeting = () => (
     <div id="personal-greeting">
       <h3 className="yum-logo">Yummaly!</h3>

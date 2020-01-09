@@ -20,7 +20,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+      .then(this.props.closeModal());
   }
 
   renderErrors() {
@@ -37,30 +38,31 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
+      <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h3 className="yum-logo">Yummaly!</h3>
-          <br/>
+          <h1 className="yum-logo">Yummaly!</h1>
+          <h2>You're almost there!</h2>
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>Email:
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                className="login-input"
+                className="signup-input"
+                placeholder="Email Address"
               />
-            </label>
             <br/>
-            <label>Password:
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input"
+                className="signup-input"
+                placeholder="Password"
               />
-            </label>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input
+              className="signup-submit"
+              type="submit"
+              value="Log In!" />
           </div>
         </form>
       </div>
