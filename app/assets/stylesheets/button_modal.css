@@ -1,0 +1,41 @@
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "lstd"
+    "sbm"
+    "lbm";
+}
+
+.signup-button-modal {
+  grid-area: sbm;
+  width: 250px;
+  height: 40px;
+  border-radius: 30px;
+  margin-top: 10px;
+  background-color: #4B9B96;
+  font-family: europa-regular, sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.login-button-modal {
+  grid-area: lbm;
+  width: 250px;
+  height: 40px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  background-color: #4B9B96;
+  font-family: europa-regular, sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.login-signup-text-div {
+  grid-area: lstd
+}
+
+.login-signup {
+  text-align: center;
+}

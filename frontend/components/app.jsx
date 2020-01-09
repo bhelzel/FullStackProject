@@ -11,16 +11,17 @@ import {
 import {AuthRoute} from '../util/route_util';
 import SignUpFormContainer from './signup_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-import Yummaly from './session_form/yummaly';
+import Yummaly from './splash_page/yummaly';
 import SideBarContainer from './side_bar/side_bar_container';
 import Modal from './modal/modal';
 
 const App = () => (
-  <div>
+  <div className="wrapper">
     <Modal />
     <header>
       <SideBarContainer />
     </header>
+    <Yummaly />
     <Switch>
       // <AuthRoute exact path="/login" component={LogInFormContainer} />
       // <AuthRoute exact path="/signup" component={SignUpFormContainer} />

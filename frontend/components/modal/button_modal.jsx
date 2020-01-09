@@ -8,9 +8,15 @@ const ButtonModal = ({ openModal }) => {
 
   const sessionLinks = () => (
     <nav className="login-signup">
-      <button onClick={() => openModal('login')}>Login</button>
-      &nbsp;or&nbsp;
-      <button onClick={() => openModal('signup')}>Signup</button>
+      <div className="login-signup-text-div">
+        <h3 className="yum-logo">Yummaly!</h3>
+        <h2 className="button-modal-text">Suck at cooking?</h2>
+        <h4>gtfo... bud</h4>
+      </div>
+      <br/>
+      <button onClick={() => openModal('login')} className="login-button-modal">Login</button>
+      <br/>
+      <button onClick={() => openModal('signup')} className="signup-button-modal">Signup</button>
     </nav>
   );
 

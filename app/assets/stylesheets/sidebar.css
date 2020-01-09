@@ -1,5 +1,9 @@
 .sidebar {
+  grid-area: sb;
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
 }
 
 .sidebar-links {
@@ -12,6 +16,28 @@
   padding-bottom: 10px;
 }
 
-.yummaly-title {
-  color: darkorange;
+.login-signup-button {
+  background-color: #4B9B96;
+  border-radius: 30px;
+  height: 40px;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: europa-boldregular, sans-serif;
+}
+
+#session-links {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.line-div {
+  border: #E3E3E3 1px solid;
+  width: 20px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top:
 }

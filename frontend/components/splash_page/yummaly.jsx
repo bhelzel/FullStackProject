@@ -2,7 +2,11 @@ import React from 'react';
 
 class Yummaly extends React.Component {
   render(){
-    return null;
+    return(
+      <div className="show">
+
+      </div>
+    )
   }
 }
 
