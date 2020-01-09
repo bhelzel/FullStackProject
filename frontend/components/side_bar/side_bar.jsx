@@ -23,7 +23,9 @@ const SideBar = ({currentUser, logout, openModal}) => {
   const personalGreeting = () => (
     <div id="personal-greeting">
       <h3 className="yum-logo">Yummaly!</h3>
-      <h2 className="header-name">Hi, {currentUser.email}!</h2>
+      <Link to="/profile"><h2 className="header-name">
+        Hi, {currentUser.email}!
+      </h2></Link>
       <button className="logout-button" onClick={logout}>Log Out</button>
     </div>
   );
