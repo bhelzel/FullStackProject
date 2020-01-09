@@ -40,12 +40,13 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-box">
-          <h1 className="yum-logo">Yummaly!</h1>
+          <h1 className="yum-logo-link" onClick={ () => this.props.closeModal() }>Yummaly!</h1>
           <h2>I am the liquor</h2>
           {this.renderErrors()}
           <div className="signup-form">
             <input type="text"
               value={this.state.email}
+              autoFocus
               onChange={this.update('email')}
               className="signup-input"
               placeholder="Email Address"

@@ -217,7 +217,9 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "wrapper"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_side_bar_side_bar_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_page_yummaly__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "sidebar-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_side_bar_side_bar_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_page_yummaly__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/profile",
     component: _splash_page_user_splash_container__WEBPACK_IMPORTED_MODULE_9__["default"]
@@ -267,7 +269,7 @@ var ButtonModal = function ButtonModal(_ref) {
       className: "login-signup"
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "login-signup-text-div"
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
       className: "yum-logo"
     }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
       className: "button-modal-text"
@@ -551,17 +553,23 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "login-form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "yum-logo"
+        className: "yum-logo-link",
+        onClick: function onClick() {
+          return _this3.props.closeModal();
+        }
       }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Rick, go fuck yourself....buddy"), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        autoFocus: true,
         value: this.state.email,
         onChange: this.update('email'),
         className: "signup-input",
@@ -632,10 +640,14 @@ var SideBar = function SideBar(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
       className: "yum-logo"
     }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/profile"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "header-name"
-    }, "Hi, ", currentUser.email, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      to: "/profile",
+      id: "greeting-link"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "greeting-icon"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "greeting-icon-img",
+      src: "https://img.icons8.com/color/48/000000/the-birth-of-venus.png"
+    }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "logout-button",
       onClick: logout
     }, "Log Out"));
@@ -772,18 +784,24 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "signup-form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "yum-logo"
+        className: "yum-logo-link",
+        onClick: function onClick() {
+          return _this3.props.closeModal();
+        }
       }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "I am the liquor"), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.email,
+        autoFocus: true,
         onChange: this.update('email'),
         className: "signup-input",
         placeholder: "Email Address"
@@ -905,14 +923,25 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show",
         id: "user-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "show-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tell us about yourself!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-show-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://img.icons8.com/clouds/100/000000/italy.png"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-info-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "user-info-header-email"
+      }, this.props.currentUser.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "user-info-header-greeting"
+      }, "Tell us about yourself!"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-yums"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "All Yums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Go to your feed and click the \"Yum\" icon to save recipes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "collections"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Add collections here!")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add collections here!")));
     }
   }]);
 

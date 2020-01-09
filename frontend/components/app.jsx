@@ -19,7 +19,7 @@ import UserSplashContainer from './splash_page/user_splash_container';
 const App = () => (
   <div className="wrapper">
     <Modal />
-    <header>
+    <header className="sidebar-container">
       <SideBarContainer />
     </header>
     <Yummaly />

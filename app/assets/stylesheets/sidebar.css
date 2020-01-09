@@ -4,6 +4,11 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   justify-content: center;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  box-shadow: 10px 0 blur darkgray;
+  width: f
 }
 
 .sidebar-links {
@@ -32,7 +37,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .line-div {
@@ -50,6 +55,21 @@
   margin-top: 50px;
 }
 
+#greeting-link {
+  display: flex;
+  justify-content: center;
+}
+
+.greeting-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: seashell;
+}
+
 .logout-button {
   background-color: #4B9B96;
   border-radius: 30px;
@@ -60,4 +80,12 @@
   padding-left: 10px;
   padding-right: 10px;
   font-family: europa-boldregular, sans-serif;
+  margin-top: 20px;
+}
+
+.sidebar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

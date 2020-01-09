@@ -40,12 +40,13 @@ class SessionForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h1 className="yum-logo">Yummaly!</h1>
+          <h1 className="yum-logo-link" onClick={ () => this.props.closeModal() }>Yummaly!</h1>
           <h2>Rick, go fuck yourself....buddy</h2>
           {this.renderErrors()}
           <div className="login-form">
             <br/>
               <input type="text"
+                autoFocus
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="signup-input"

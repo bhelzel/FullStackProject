@@ -4,3 +4,14 @@
   font-weight: bolder;
   font-size: 26px;
 }
+
+.yum-logo-link  {
+  color: #E1611F;
+  font-family: 'Marck Script', cursive;
+  font-weight: bolder;
+  font-size: 26px;
+}
+
+.yum-logo-link:hover {
+  cursor: poiner;
+}

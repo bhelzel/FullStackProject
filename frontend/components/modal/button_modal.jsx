@@ -9,7 +9,7 @@ const ButtonModal = ({ openModal }) => {
   const sessionLinks = () => (
     <nav className="login-signup">
       <div className="login-signup-text-div">
-        <h3 className="yum-logo">Yummaly!</h3>
+        <h1 className="yum-logo">Yummaly!</h1>
         <h2 className="button-modal-text">Like cooking?</h2>
         <h4>We've got you covered!</h4>
       </div>

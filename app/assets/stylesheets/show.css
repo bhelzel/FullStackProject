@@ -2,3 +2,58 @@
   grid-area: show;
   background-color: #F8F8F8;
 }
+
+#user-show {
+  display: grid;
+}
+
+.user-show-header {
+  grid-area: "ush";
+  display: grid;
+  grid-template-columns: 1fr 3fr 5fr;
+  grid-template-areas:
+    "icn uie"
+    "icn uig";
+  margin-left: 60px;
+  margin-top: 50px;
+}
+
+.user-icon {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: azure;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 20px;
+}
+
+.user-info-header {
+  margin-left: 20px;
+  display: block;
+}
+
+.user-info-header-email {
+  font-family: europa-boldregular, sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  grid-area: "uie";
+  height: 40px;
+}
+
+.user-info-header-greeting {
+  font-family: europa-boldregular, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  grid-area: "uig";
+}
+
+.show > .user-yums {
+  margin-left: 60px;
+}
+
+.show > .collections {
+  margin-left: 60px;
+}
