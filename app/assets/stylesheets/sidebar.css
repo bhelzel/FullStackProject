@@ -20,6 +20,7 @@
   background-color: #4B9B96;
   border-radius: 30px;
   height: 40px;
+  width: 140px;
   color: #FFFFFF;
   font-size: 14px;
   padding-left: 10px;
@@ -40,4 +41,23 @@
   margin: 0 auto;
   margin-bottom: 30px;
   margin-top:
+}
+
+#personal-greeting {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.logout-button {
+  background-color: #4B9B96;
+  border-radius: 30px;
+  height: 40px;
+  width: 140px;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: europa-boldregular, sans-serif;
 }

@@ -10,8 +10,8 @@ const ButtonModal = ({ openModal }) => {
     <nav className="login-signup">
       <div className="login-signup-text-div">
         <h3 className="yum-logo">Yummaly!</h3>
-        <h2 className="button-modal-text">Suck at cooking?</h2>
-        <h4>gtfo... bud</h4>
+        <h2 className="button-modal-text">Like cooking?</h2>
+        <h4>We've got you covered!</h4>
       </div>
       <br/>
       <button onClick={() => openModal('login')} className="login-button-modal">Login</button>

@@ -41,7 +41,7 @@ class SignupForm extends React.Component {
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <h1 className="yum-logo">Yummaly!</h1>
-          <h2>You're almost there!</h2>
+          <h2>I am the liquor</h2>
           {this.renderErrors()}
           <div className="signup-form">
             <input type="text"

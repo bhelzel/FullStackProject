@@ -265,7 +265,7 @@ var ButtonModal = function ButtonModal(_ref) {
       className: "yum-logo"
     }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
       className: "button-modal-text"
-    }, "Suck at cooking?"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", null, "gtfo... bud")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    }, "Like cooking?"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", null, "We've got you covered!")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
       onClick: function onClick() {
         return openModal('login');
       },
@@ -552,7 +552,7 @@ function (_React$Component) {
         className: "login-form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "yum-logo"
-      }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "You're almost there!"), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Rick, go fuck yourself....buddy"), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -625,19 +625,17 @@ var SideBar = function SideBar(_ref) {
       id: "personal-greeting"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
       className: "yum-logo"
-    }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
-      className: "header-group"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "header-name"
     }, "Hi, ", currentUser.email, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "header-button",
+      className: "logout-button",
       onClick: logout
-    }, "Log Out")));
+    }, "Log Out"));
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sidebar"
-  }, currentUser ? personalGreeting(currentUser, logout) : sessionLinks());
+  }, currentUser ? personalGreeting() : sessionLinks());
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SideBar);
@@ -667,7 +665,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -773,7 +771,7 @@ function (_React$Component) {
         className: "signup-form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "yum-logo"
-      }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "You're almost there!"), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Yummaly!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "I am the liquor"), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",

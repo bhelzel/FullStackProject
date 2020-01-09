@@ -19,14 +19,12 @@ const SideBar = ({currentUser, logout, openModal}) => {
       </nav>
     </div>
   );
-  
+
   const personalGreeting = () => (
     <div id="personal-greeting">
       <h3 className="yum-logo">Yummaly!</h3>
-      <hgroup className="header-group">
-        <h2 className="header-name">Hi, {currentUser.email}!</h2>
-        <button className="header-button" onClick={logout}>Log Out</button>
-      </hgroup>
+      <h2 className="header-name">Hi, {currentUser.email}!</h2>
+      <button className="logout-button" onClick={logout}>Log Out</button>
     </div>
   );
 
@@ -34,7 +32,7 @@ const SideBar = ({currentUser, logout, openModal}) => {
     <div className="sidebar">
       {
         currentUser ?
-        personalGreeting(currentUser, logout) :
+        personalGreeting() :
         sessionLinks()
       }
     </div>
