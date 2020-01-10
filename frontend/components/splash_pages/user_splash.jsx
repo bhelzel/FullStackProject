@@ -8,7 +8,7 @@ class UserSplash extends React.Component {
 
   render() {
     return (
-      <div className="show" id="user-show">
+      <div className="user-show">
         <div className="user-show-header">
           <div className="user-icon">
             <img src="https://img.icons8.com/clouds/100/000000/italy.png" />

@@ -9,19 +9,14 @@ import {
 } from 'react-router-dom';
 
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
-import SignUpFormContainer from './signup_form/signup_form_container';
-import LogInFormContainer from './session_form/login_form_container';
-import Yummaly from './splash_page/yummaly';
+import Yummaly from './splash_pages/yummaly_container';
 import SideBarContainer from './side_bar/side_bar_container';
-import Modal from './modal/modal';
-import UserSplashContainer from './splash_page/user_splash_container';
+
+
 
 const App = () => (
   <div className="wrapper">
-    <Modal />
-    <header className="sidebar-container">
-      <SideBarContainer />
-    </header>
+    <SideBarContainer />
     <Yummaly />
     <Switch>
       <ProtectedRoute exact path="/profile" component={UserSplashContainer} />
