@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
-import SignUpForm from './session_form';
+import SessionForm from './session_form';
 
 const mapStateToProps = ({ errors }) => {
   return {

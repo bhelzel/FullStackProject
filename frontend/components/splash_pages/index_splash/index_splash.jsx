@@ -8,7 +8,13 @@ class IndexSplash extends React.Component {
 
   render() {
     return (
-      <div>{this.props.currentUser.email}</div>
+      <div>
+        {
+          this.props.currentUser ?
+            "test" :
+            "test1"
+        }
+      </div>
     )
   }
 }

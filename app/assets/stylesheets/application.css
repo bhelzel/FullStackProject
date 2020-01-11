@@ -16,7 +16,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 18% 82%;
   grid-template-areas:
     "sb show";
 }
