@@ -5,8 +5,7 @@ import UserSplash from './user_splash';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentUser: state.entities.users[state.session.id],
-    location: ownProps.location.pathname
+    currentUser: state.entities.users[state.session.id]
   }
 }
 

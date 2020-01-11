@@ -1,19 +1,17 @@
 .show {
-  grid-area: show;
+  /* grid-area: show; */
+  position: relative;
+  width: 100%;
+  height: 100vh;
   background-color: #F8F8F8;
 }
 
-#user-show {
-  display: grid;
+.user-show {
+  display: inline;
 }
 
 .user-show-header {
-  grid-area: "ush";
-  display: grid;
-  grid-template-columns: 1fr 3fr 5fr;
-  grid-template-areas:
-    "icn uie"
-    "icn uig";
+  display: flex;
   margin-left: 60px;
   margin-top: 50px;
 }
@@ -31,6 +29,7 @@
 
 .user-info-header {
   margin-left: 20px;
+  margin-top: 45px;
   display: block;
 }
 
@@ -38,22 +37,81 @@
   font-family: europa-boldregular, sans-serif;
   font-weight: 700;
   font-size: 34px;
-  grid-area: "uie";
-  height: 40px;
+  height: 60px;
+}
+
+.user-info-header-email:hover {
+  color: #399690;
 }
 
 .user-info-header-greeting {
   font-family: europa-boldregular, sans-serif;
-  font-weight: 400;
+  font-weight: 200;
+  color: lightgray;
   font-size: 16px;
   line-height: 25px;
-  grid-area: "uig";
+  style: normal;
 }
 
-.show > .user-yums {
+.user-info-header-greeting:hover {
+  color: #92C3C0;
+}
+
+.user-search-container {
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  border: lightgray 1px;
+  box-shadow: lightgray 2px;
+  margin-left: 60px;
+  margin-top: 40px;
+  background-color: #FFFFFF;
+}
+
+.user-search {
+  background-image: url("https://img.icons8.com/small/16/000000/search.png");
+  background-position: 3% 50%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.3333em 1em rgba(0,0,0,.08), 0 0 1px rgba(0,0,0,.08);
+  outline: none;
+  border: none;
+  max-width: 100%;
+  border-radius: 2em;
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 35px;
+  font-size: 14px;
+  min-width: 250px;
+}
+
+.index-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.index-search {
+  background-image: url("https://img.icons8.com/small/16/000000/search.png");
+  background-position: 3% 50%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.3333em 1em rgba(0,0,0,.08), 0 0 1px rgba(0,0,0,.08);
+  outline: none;
+  border: none;
+  max-width: 100%;
+  border-radius: 2em;
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 35px;
+  font-size: 14px;
+  width: 400px;
+}
+.user-yums {
+  margin-top: 40px;
   margin-left: 60px;
 }
 
-.show > .collections {
+.collections {
+  margin-top: 40px;
   margin-left: 60px;
 }

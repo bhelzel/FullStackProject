@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="session-form-container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="session-form">
           <h1 className="yum-logo-link" onClick={ () => this.props.closeModal() }>Yummaly!</h1>
           <h2>cooking phrase or something</h2>
           {this.renderErrors()}

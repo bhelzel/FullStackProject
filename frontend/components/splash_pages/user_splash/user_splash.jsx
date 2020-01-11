@@ -14,9 +14,17 @@ class UserSplash extends React.Component {
             <img src="https://img.icons8.com/clouds/100/000000/italy.png" />
           </div>
           <div className="user-info-header">
-            <p className="user-info-header-email">{this.props.currentUser.email}</p>
-            <p className="user-info-header-greeting">Tell us about yourself!</p>
+            <span className="user-info-header-email">{this.props.currentUser.email}</span>
+            <br/>
+            <span className="user-info-header-greeting">Tell us about yourself!</span>
           </div>
+        </div>
+        <div className="user-search-container">
+          <input
+            type="text"
+            className="user-search"
+            placeholder="Search My Yums"
+          />
         </div>
         <div className="user-yums">
           <h2>All Yums</h2>

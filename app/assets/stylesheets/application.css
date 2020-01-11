@@ -15,8 +15,13 @@
  */
 
 .wrapper {
-  display: grid;
-  grid-template-columns: 18% 82%;
-  grid-template-areas:
-    "sb show";
+  display: flex;
 }
+
+/*
+display: grid;
+grid-template-columns: 18% 82%;
+grid-column-gap: 2px;
+grid-template-areas:
+  "sb show";
+justify-content: stretch; */

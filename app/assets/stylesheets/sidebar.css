@@ -1,24 +1,13 @@
 .sidebar {
-  grid-area: sb;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  justify-content: center;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  box-shadow: 10px 0 blur darkgray;
-  width: f
-}
-
-.sidebar-links {
-  padding: 10px;
-  color: aqua;
-}
-
-.link {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* grid-area: sb; */
+  display: flex;
+  width: 204px;
+  height: 100vh;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  box-shadow: 1px 0 2px lightgray;
+  background-color: #FFFFFF
 }
 
 .login-signup-button {
@@ -35,7 +24,7 @@
 
 #session-links {
   justify-content: center;
-  align-items: center;
+  align-items:;
   text-align: center;
   margin-top: 30px;
 }

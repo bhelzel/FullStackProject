@@ -4,7 +4,7 @@ import { logout } from '../../actions/session_actions';
 import SideBar from './side_bar';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id]
   }

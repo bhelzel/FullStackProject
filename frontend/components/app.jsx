@@ -10,9 +10,9 @@ import {
 
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import SideBarContainer from './side_bar/side_bar_container';
-import UserSplash from './user_splash/user_splash_container';
+import UserSplash from './splash_pages/user_splash/user_splash_container';
 import Modal from './modals/modal';
-import IndexSplash from './index_splash/index_splash_container';
+import IndexSplash from './splash_pages/index_splash/index_splash_container';
 
 const App = () => (
   <div className="wrapper">

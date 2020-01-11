@@ -8,12 +8,16 @@ class IndexSplash extends React.Component {
 
   render() {
     return (
-      <div>
-        {
-          this.props.currentUser ?
-            "test" :
-            "test1"
-        }
+      <div className="show" id="index-show">
+        <div className="splash-header">
+          <div className="index-search-container">
+            <input
+              type="text"
+              className="index-search"
+              placeholder="Search All Recipes"
+            />
+          </div>
+        </div>
       </div>
     )
   }
