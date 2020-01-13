@@ -1,4 +1,5 @@
 import React from 'react';
+import {regionButtons} from './region_buttons';
 
 class IndexSplash extends React.Component {
 
@@ -17,6 +18,9 @@ class IndexSplash extends React.Component {
               placeholder="Search All Recipes"
             />
           </div>
+        </div>
+        <div className="region-buttons">
+          {regionButtons()}
         </div>
       </div>
     )

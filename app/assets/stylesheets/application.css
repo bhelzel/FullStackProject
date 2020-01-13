@@ -18,6 +18,9 @@
   display: flex;
 }
 
+a:active {
+  outline: none;
+}
 /*
 display: grid;
 grid-template-columns: 18% 82%;

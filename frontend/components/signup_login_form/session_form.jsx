@@ -6,9 +6,14 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      errors: this.props.errors
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors()
   }
 
   update(field) {
@@ -18,21 +23,33 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.stopPropagation()
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
-      .then(this.props.closeModal());
+      .then(
+        () => { this.props.closeModal() },
+        () => { this.resetState() }
+      )
+  }
+
+  resetState() {
+    this.setState({
+      email: '',
+      password: ''
+    });
+    this.props.openModal();
   }
 
   renderErrors() {
     return(
-      <ul>
+      <p>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <span key={`error-${i}`}>
             {error}
-          </li>
+          </span>
         ))}
-      </ul>
+      </p>
     );
   }
 

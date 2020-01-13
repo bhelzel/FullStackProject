@@ -21,7 +21,9 @@ const SideBar = ({currentUser, logout, openModal}) => {
 
   const personalGreeting = () => (
     <div id="personal-greeting">
-      <h3 className="yum-logo">Yummaly!</h3>
+      <Link to="/"  id="yum-logo-sb-greeting">
+        <h3 className="yum-logo">Yummaly!</h3>
+      </Link>
       <Link to="/profile" id="greeting-link">
         <div className="greeting-icon">
           <img
