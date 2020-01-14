@@ -21,6 +21,7 @@ const App = () => (
     <Switch>
       <ProtectedRoute exact path="/profile" component={UserSplash} />
       <Route exact path="/" component={IndexSplash} />
+      <Route exact path="/${recipe_id}" />
     </Switch>
   </div>
 );

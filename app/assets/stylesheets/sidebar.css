@@ -1,7 +1,8 @@
 .sidebar {
   display: flex;
+  position: relative;
   width: 204px;
-  height: 100vh;
+  height: 100%;
   flex-direction: column;
   box-sizing: border-box;
   align-items: center;
@@ -19,6 +20,9 @@
   padding-left: 10px;
   padding-right: 10px;
   font-family: europa-boldregular, sans-serif;
+}
+.login-signup-button:active {
+  outline: none
 }
 
 .login-signup:active {
@@ -85,6 +89,9 @@
   padding-right: 10px;
   font-family: europa-boldregular, sans-serif;
   margin-top: 20px;
+}
+.logout-button:active {
+  outline: none;
 }
 
 .sidebar-container {

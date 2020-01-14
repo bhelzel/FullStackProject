@@ -115,6 +115,54 @@ var closeModal = function closeModal() {
 
 /***/ }),
 
+/***/ "./frontend/actions/recipe_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/recipe_actions.js ***!
+  \********************************************/
+/*! exports provided: RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, receiveAllRecipes, receiveRecipe, fetchAllRecipes, fetchRecipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_RECIPES", function() { return RECEIVE_ALL_RECIPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_RECIPE", function() { return RECEIVE_RECIPE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllRecipes", function() { return receiveAllRecipes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveRecipe", function() { return receiveRecipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllRecipes", function() { return fetchAllRecipes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRecipe", function() { return fetchRecipe; });
+/* harmony import */ var _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/recipe_api_util */ "./frontend/util/recipe_api_util.js");
+
+var RECEIVE_ALL_RECIPES = 'RECEIVE_ALL_RECIPES';
+var RECEIVE_RECIPE = 'RECEIVE_RECIPE';
+var receiveAllRecipes = function receiveAllRecipes(recipes) {
+  return {
+    type: RECEIVE_ALL_RECIPES,
+    recipes: recipes
+  };
+};
+var receiveRecipe = function receiveRecipe(recipe) {
+  return {
+    type: RECEIVE_RECIPE,
+    recipe: recipe
+  };
+};
+var fetchAllRecipes = function fetchAllRecipes() {
+  return function (dispatch) {
+    return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllRecipes"]().then(function (recipes) {
+      return dispatch(receiveAllRecipes(recipes));
+    });
+  };
+};
+var fetchRecipe = function fetchRecipe() {
+  return function (dispatch) {
+    return Recipe.APIUtil.fetchRecipe().then(function (recipe) {
+      return dispatch(receiveRecipe(recipe));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -229,6 +277,9 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _splash_pages_index_splash_index_splash_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/${recipe_id}"
   })));
 };
 
@@ -250,13 +301,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
 
 
 var ButtonModal = function ButtonModal(_ref) {
-  var openModal = _ref.openModal;
+  var closeModal = _ref.closeModal,
+      openModal = _ref.openModal,
+      demoLogin = _ref.demoLogin,
+      demoUser = _ref.demoUser;
 
   var sessionLinks = function sessionLinks() {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("nav", {
@@ -277,7 +333,13 @@ var ButtonModal = function ButtonModal(_ref) {
         return openModal('signup');
       },
       className: "signup-button-modal"
-    }, "Signup"));
+    }, "Signup"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      onClick: function onClick() {
+        demoLogin(demoUser);
+        closeModal();
+      },
+      className: "demo-button-modal"
+    }, "Demo User"));
   };
 
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -287,7 +349,11 @@ var ButtonModal = function ButtonModal(_ref) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    demoUser: {
+      email: 'DemoUser',
+      password: 'asdfasdf'
+    }
   };
 };
 
@@ -295,6 +361,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
+    },
+    demoLogin: function demoLogin(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["login"])(user));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
     }
   };
 };
@@ -379,6 +451,111 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Modal));
+
+/***/ }),
+
+/***/ "./frontend/components/recipe_components/recipes_index.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/recipe_components/recipes_index.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var RecipesIndex =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(RecipesIndex, _React$Component);
+
+  function RecipesIndex(props) {
+    _classCallCheck(this, RecipesIndex);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(RecipesIndex).call(this, props));
+  }
+
+  _createClass(RecipesIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllRecipes();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "recipes-index"
+      }, Object.values(this.props.recipes).map(function (recipe) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "recipe-container",
+          key: recipe.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, recipe.name));
+      }));
+    }
+  }]);
+
+  return RecipesIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (RecipesIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/recipe_components/recipes_index_container.jsx":
+/*!***************************************************************************!*\
+  !*** ./frontend/components/recipe_components/recipes_index_container.jsx ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
+/* harmony import */ var _recipes_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./recipes_index */ "./frontend/components/recipe_components/recipes_index.jsx");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    recipes: state.entities.recipes
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchAllRecipes: function fetchAllRecipes() {
+      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllRecipes"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_recipes_index__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -708,7 +885,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "signup-submit",
         type: "submit",
-        value: "Log In!"
+        value: this.props.formType === 'signup' ? "Sign Up" : "Log In"
       }))));
     }
   }]);
@@ -783,7 +960,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _region_buttons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./region_buttons */ "./frontend/components/splash_pages/index_splash/region_buttons.jsx");
+/* harmony import */ var _recipe_components_recipes_index_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../recipe_components/recipes_index_container */ "./frontend/components/recipe_components/recipes_index_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -831,8 +1008,10 @@ function (_React$Component) {
         className: "index-search",
         placeholder: "Search All Recipes"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "region-buttons"
-      }, Object(_region_buttons__WEBPACK_IMPORTED_MODULE_1__["regionButtons"])()));
+        className: "recipes"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "recipes-index-text"
+      }, "Classic Italian recipes from across the country, just for you:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recipe_components_recipes_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
     }
   }]);
 
@@ -869,32 +1048,6 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, null)(_index_splash__WEBPACK_IMPORTED_MODULE_3__["default"]));
-
-/***/ }),
-
-/***/ "./frontend/components/splash_pages/index_splash/region_buttons.jsx":
-/*!**************************************************************************!*\
-  !*** ./frontend/components/splash_pages/index_splash/region_buttons.jsx ***!
-  \**************************************************************************/
-/*! exports provided: regionButtons */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "regionButtons", function() { return regionButtons; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var regionButtons = function regionButtons() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: "regions"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "region-li"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Piemonte"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "region-img",
-    src: "../../../../app/assets/images/oie_jpg.png"
-  }))));
-};
 
 /***/ }),
 
@@ -1072,10 +1225,13 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _recipes_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recipes_reducer */ "./frontend/reducers/recipes_reducer.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  recipes: _recipes_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -1126,6 +1282,39 @@ function modalReducer() {
       return state;
   }
 }
+
+/***/ }),
+
+/***/ "./frontend/reducers/recipes_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/recipes_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
+
+
+var recipesReducer = function recipesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_RECIPES"]:
+      return Object.assign({}, action.recipes);
+
+    case _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_RECIPE"]:
+      return Object.assign({}, action.recipe);
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (recipesReducer);
 
 /***/ }),
 
@@ -1309,6 +1498,35 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/recipe_api_util.js":
+/*!******************************************!*\
+  !*** ./frontend/util/recipe_api_util.js ***!
+  \******************************************/
+/*! exports provided: fetchAllRecipes, fetchRecipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllRecipes", function() { return fetchAllRecipes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRecipe", function() { return fetchRecipe; });
+var fetchAllRecipes = function fetchAllRecipes() {
+  return $.ajax({
+    url: '/api/recipes',
+    method: 'GET'
+  });
+};
+var fetchRecipe = function fetchRecipe(recipe) {
+  return $.ajax({
+    url: '/api/recipe/',
+    method: 'GET',
+    data: {
+      recipe: recipe
+    }
+  });
+};
 
 /***/ }),
 

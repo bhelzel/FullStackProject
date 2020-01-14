@@ -1,5 +1,5 @@
 import React from 'react';
-import {regionButtons} from './region_buttons';
+import RecipesIndex from '../../recipe_components/recipes_index_container';
 
 class IndexSplash extends React.Component {
 
@@ -19,8 +19,9 @@ class IndexSplash extends React.Component {
             />
           </div>
         </div>
-        <div className="region-buttons">
-          {regionButtons()}
+        <div className="recipes">
+          <h5 className="recipes-index-text">Classic Italian recipes from across the country, just for you:</h5>
+          <RecipesIndex />
         </div>
       </div>
     )

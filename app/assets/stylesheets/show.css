@@ -1,7 +1,7 @@
 .show {
   /* grid-area: show; */
   position: relative;
-  height: 100vh;
+  height: 100%;
   background-color: #F8F8F8;
 }
 
@@ -136,7 +136,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 350px;
   width: 100%;
 }
 

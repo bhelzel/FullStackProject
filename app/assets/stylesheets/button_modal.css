@@ -5,7 +5,8 @@
   grid-template-areas:
     "lstd"
     "sbm"
-    "lbm";
+    "lbm"
+    "dbm";
 }
 
 .signup-button-modal {
@@ -14,10 +15,14 @@
   height: 40px;
   border-radius: 30px;
   margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #4B9B96;
   font-family: europa-regular, sans-serif;
   font-size: 16px;
   color: #FFFFFF;
+}
+.signup-button-modal:active {
+  outline: none;
 }
 
 .login-button-modal {
@@ -26,10 +31,30 @@
   height: 40px;
   border-radius: 30px;
   margin-bottom: 10px;
+  margin-top: 10px;
   background-color: #4B9B96;
   font-family: europa-regular, sans-serif;
   font-size: 16px;
   color: #FFFFFF;
+}
+.login-button-modal:active {
+  outline: none;
+}
+
+.demo-button-modal {
+  grid-area: dmb;
+  width: 250px;
+  height: 40px;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #4B9B96;
+  font-family: europa-regular, sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.demo-button-modal:active {
+  outline: none;
 }
 
 .login-signup-text-div {
@@ -38,4 +63,8 @@
 
 .login-signup {
   text-align: center;
+}
+
+.login-signup:active {
+  outline: none;
 }
