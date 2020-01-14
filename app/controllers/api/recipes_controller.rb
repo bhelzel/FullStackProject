@@ -8,7 +8,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find_by(id: [recipe_params[:id]])
+    @recipe = Recipe.find(params[:id])
     render "api/recipes/show"
   end
 

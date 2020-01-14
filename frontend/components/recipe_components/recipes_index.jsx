@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { RecipeIndexItem } from './recipe_index_item';
 
 class RecipesIndex extends React.Component {
 
@@ -15,13 +17,14 @@ class RecipesIndex extends React.Component {
       <div className="recipes-index">
         {
           Object.values(this.props.recipes).map(recipe => (
-            <div className="recipe-container" key={recipe.id}>
-              <h3>{recipe.name}</h3>
-            </div>))
-        }
+            <RecipeIndexItem
+              recipe={recipe}
+              key={recipe.id}
+            />
+        ))}
       </div>
     )
-  }
+    }
 }
 
 export default RecipesIndex;

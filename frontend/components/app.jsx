@@ -13,6 +13,7 @@ import SideBarContainer from './side_bar/side_bar_container';
 import UserSplash from './splash_pages/user_splash/user_splash_container';
 import Modal from './modals/modal';
 import IndexSplash from './splash_pages/index_splash/index_splash_container';
+import RecipeShowContainer from './recipe_components/recipe_show_container';
 
 const App = () => (
   <div className="wrapper">
@@ -21,7 +22,7 @@ const App = () => (
     <Switch>
       <ProtectedRoute exact path="/profile" component={UserSplash} />
       <Route exact path="/" component={IndexSplash} />
-      <Route exact path="/${recipe_id}" />
+      <Route exact path="/:recipeId" component={RecipeShowContainer} />
     </Switch>
   </div>
 );
