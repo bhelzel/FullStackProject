@@ -1,8 +1,9 @@
 .show {
   /* grid-area: show; */
   position: relative;
-  height: 100%;
+  height: 100vh;
   background-color: #F8F8F8;
+  overflow: auto;
 }
 
 #user-show {

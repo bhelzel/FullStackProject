@@ -16,10 +16,15 @@
 
 .wrapper {
   display: flex;
+  margin: 0px;
 }
 
 a:active {
   outline: none;
+}
+
+#root {
+  margin: 0px;
 }
 /*
 display: grid;
