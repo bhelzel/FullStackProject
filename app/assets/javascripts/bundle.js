@@ -477,7 +477,10 @@ var RecipeIndexItem = function RecipeIndexItem(props) {
     className: "recipe-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/".concat(props.recipe.id)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.recipe.name)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.recipe.photoUrl,
+    className: "recipe-photo"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.recipe.name)));
 };
 
 /***/ }),
@@ -540,27 +543,17 @@ function (_React$Component) {
         className: "recipe-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.recipe.ingredients), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.recipe.directions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegan: ", this.props.recipe.vegan), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegetarian: ", this.props.recipe.vegetarian), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Pescetarian: ", this.props.recipe.pescetarian)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.recipe.photoUrl,
+        className: "recipe-photo"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.recipe.ingredients), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.recipe.directions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No")));
     }
   }]);
 
   return RecipeShow;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (RecipeShow); // const RecipeShow = props => (
-//   <div className="recipe-show">
-//     <div className="recipe">
-//       <h2>{this.props.recipe.name}</h2>
-//       <p>{this.props.recipe.ingredients}</p>
-//       <p>{this.props.recipe.directions}</p>
-//       <h4>Region: {this.props.recipe.region}</h4>
-//       <h4>Recipe Type: {this.props.recipe.recipe_type}</h4>
-//       <h5>Vegan: {this.props.recipe.vegan}</h5>
-//       <h5>Vegetarian: {this.props.recipe.vegetarian}</h5>
-//       <h5>Pescetarian: {this.props.recipe.pescetarian}</h5>
-//     </div>
-//   </div>
-// );
+/* harmony default export */ __webpack_exports__["default"] = (RecipeShow);
 
 /***/ }),
 
