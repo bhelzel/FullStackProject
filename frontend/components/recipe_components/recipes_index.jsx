@@ -19,6 +19,7 @@ class RecipesIndex extends React.Component {
           Object.values(this.props.recipes).map(recipe => (
             <RecipeIndexItem
               recipe={recipe}
+              currentUser={this.props.currentUser}
               likeRecipe={this.props.likeRecipe}
               unLikeRecipe={this.props.unLikeRecipe}
               key={recipe.id}

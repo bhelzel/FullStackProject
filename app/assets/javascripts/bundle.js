@@ -490,28 +490,43 @@ __webpack_require__.r(__webpack_exports__);
 
 var RecipeIndexItem = function RecipeIndexItem(_ref) {
   var recipe = _ref.recipe,
+      currentUser = _ref.currentUser,
       likeRecipe = _ref.likeRecipe,
       unLikeRecipe = _ref.unLikeRecipe;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "recipe-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: recipe.photoUrl,
-    className: "recipe-photo"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "recipe-title-button"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/".concat(recipe.id)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return likeRecipe(recipe.id);
-    },
-    className: "like-button"
-  }, "Like"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return unLikeRecipe(like.id);
-    },
-    className: "like-button"
-  }, "Unlike")));
+
+  if (currentUser === undefined) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "recipe-container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: recipe.photoUrl,
+      className: "recipe-photo"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "recipe-title-button"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/".concat(recipe.id)
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sign in to like recipes!")));
+  } else {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "recipe-container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: recipe.photoUrl,
+      className: "recipe-photo"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "recipe-title-button"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/".concat(recipe.id)
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return likeRecipe(recipe.id);
+      },
+      className: "like-button"
+    }, "Like"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return unLikeRecipe(like.id);
+      },
+      className: "like-button"
+    }, "Unlike")));
+  }
 };
 
 /***/ }),
@@ -686,6 +701,7 @@ function (_React$Component) {
       }, Object.values(this.props.recipes).map(function (recipe) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recipe_index_item__WEBPACK_IMPORTED_MODULE_2__["RecipeIndexItem"], {
           recipe: recipe,
+          currentUser: _this.props.currentUser,
           likeRecipe: _this.props.likeRecipe,
           unLikeRecipe: _this.props.unLikeRecipe,
           key: recipe.id
@@ -722,7 +738,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    recipes: state.entities.recipes
+    recipes: state.entities.recipes,
+    currentUser: state.entities.users[state.session.id]
   };
 };
 

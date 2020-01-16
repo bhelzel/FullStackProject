@@ -4,7 +4,8 @@ import { fetchAllRecipes, likeRecipe, unLikeRecipe } from '../../actions/recipe_
 import RecipesIndex from './recipes_index';
 
 const mapStateToProps = state => ({
-  recipes: state.entities.recipes
+  recipes: state.entities.recipes,
+  currentUser: state.entities.users[state.session.id]
 })
 
 const mapDispatchToProps = dispatch => ({
