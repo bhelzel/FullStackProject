@@ -1,4 +1,5 @@
 import React from 'react';
+import UserLike from './user_like'
 
 class UserSplash extends React.Component {
 

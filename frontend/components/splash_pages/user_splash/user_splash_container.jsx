@@ -5,7 +5,8 @@ import UserSplash from './user_splash';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    likes: state.entities.likes
   }
 }
 

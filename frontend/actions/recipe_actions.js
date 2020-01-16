@@ -24,3 +24,13 @@ export const fetchRecipe = recipeId => dispatch => (
     dispatch(receiveRecipe(recipe))
   ))
 )
+
+export const likeRecipe = id => dispatch => (
+  RecipeAPIUtil.postLikeToRecipe(id)
+    .then(recipe => dispatch(receiveRecipe(recipe)))
+)
+
+export const unLikeRecipe = id => dispatch => (
+  RecipeAPIUtil.deleteLikeFromRecipe(id)
+    .then(recipe => dispatch(receiveRecipe(recipe)))
+)
