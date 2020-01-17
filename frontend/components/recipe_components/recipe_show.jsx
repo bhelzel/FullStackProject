@@ -11,7 +11,7 @@ class RecipeShow extends React.Component {
   }
 
   render() {
-    if(this.props.recipe === undefined) {
+    if(this.props.recipe === undefined || this.props.recipe.ingredients === undefined) {
       return null;
     }
     return (

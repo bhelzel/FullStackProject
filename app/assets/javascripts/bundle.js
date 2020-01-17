@@ -562,7 +562,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.props.recipe === undefined) {
+      if (this.props.recipe === undefined || this.props.recipe.ingredients === undefined) {
         return null;
       }
 
