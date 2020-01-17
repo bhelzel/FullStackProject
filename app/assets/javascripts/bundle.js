@@ -493,40 +493,21 @@ var RecipeIndexItem = function RecipeIndexItem(_ref) {
       currentUser = _ref.currentUser,
       likeRecipe = _ref.likeRecipe,
       unLikeRecipe = _ref.unLikeRecipe;
-
-  if (currentUser === undefined) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "recipe-container"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: recipe.photoUrl,
-      className: "recipe-photo"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "recipe-title-button"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/".concat(recipe.id)
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sign in to like recipes!")));
-  } else {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "recipe-container"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: recipe.photoUrl,
-      className: "recipe-photo"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "recipe-title-button"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/".concat(recipe.id)
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: function onClick() {
-        return likeRecipe(recipe.id);
-      },
-      className: "like-button"
-    }, "Like"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: function onClick() {
-        return unLikeRecipe(like.id);
-      },
-      className: "like-button"
-    }, "Unlike")));
-  }
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "recipe-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "img-div"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: recipe.photoUrl,
+    className: "recipe-photo"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "recipe-title-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/".concat(recipe.id),
+    className: "show-link"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "recipe-name"
+  }, recipe.name))));
 };
 
 /***/ }),
@@ -592,7 +573,23 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.recipe.photoUrl,
         className: "recipe-photo"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.recipe.ingredients), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.recipe.directions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No")));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ingredients-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Ingredients:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.recipe.ingredients.map(function (ingredient, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "ingredient",
+          key: i
+        }, ingredient);
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "directions-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Directions:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.recipe.directions.map(function (direction, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "direction",
+          key: i
+        }, direction);
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "rec-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No"))));
     }
   }]);
 
@@ -884,7 +881,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id] // location: ownProps.location.pathname
+
   };
 };
 
@@ -1205,11 +1203,7 @@ function (_React$Component) {
         className: "splash-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-search-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "index-search",
-        placeholder: "Search All Recipes"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipes"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "recipes-index-text"
@@ -1329,15 +1323,9 @@ function (_React$Component) {
         className: "user-info-header-greeting"
       }, "Tell us about yourself!"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-search-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "user-search",
-        placeholder: "Search My Yums"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-yums"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "All Yums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Go to your feed and click the \"Yum\" icon to save recipes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "collections"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add collections here!")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Favorite Recipes:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Go to your feed and click the \"Like\" button to save recipes")));
     }
   }]);
 

@@ -21,18 +21,11 @@ class UserSplash extends React.Component {
           </div>
         </div>
         <div className="user-search-container">
-          <input
-            type="text"
-            className="user-search"
-            placeholder="Search My Yums"
-          />
+
         </div>
         <div className="user-yums">
-          <h2>All Yums</h2>
-          <p>Go to your feed and click the "Yum" icon to save recipes</p>
-        </div>
-        <div className="collections">
-          <h2>Add collections here!</h2>
+          <h2>Favorite Recipes:</h2>
+          <p>Go to your feed and click the "Like" button to save recipes</p>
         </div>
       </div>
     )
