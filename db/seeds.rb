@@ -31,14 +31,16 @@ Recipe3 = Recipe.create(
   vegan: false, vegetarian: false, pescetarian: false)
 Recipe3.photo.attach(io: open("https://yummaly-aa-seeds.s3-us-west-1.amazonaws.com/R3.jpg"), filename: "R3.jpg");
 
-Recipe4 = Recipe.create(name: "Fritto Misto alla Fiorentina", ingredients: ["1/2 chicken", "1/2 rabbit", "2 small zucchini", "2 globes artichokes, leaf tips trimmed", "juice of 1 lemon", "6 zucchini flowers", "2 eggs", "1 cup all purpose flour", "extra virgin olive oil", "salt and pepper"],
+Recipe4 = Recipe.create(name: "Fritto Misto alla Fiorentina",
+  ingredients: ["1/2 chicken", "1/2 rabbit", "2 small zucchini", "2 globes artichokes, leaf tips trimmed", "juice of 1 lemon", "6 zucchini flowers", "2 eggs", "1 cup all purpose flour", "extra virgin olive oil", "salt and pepper"],
   directions: ["Cut the chicken and rabbit into smallish pieces, the zucchini into short strips and the artichokes into small wedges. Remove chokes from artichokes. Place the artichokes in a bowl of water with lemon juice added to prevent them from turning brown.", "Open the zucchini flowers and remove the pistils. Beat the eggs well in a shallow bowl with salt and pepper. Dry all the vegetables well. Dredge all the items to be fried in flour, then coat with egg.", "Fry a few pieces at a time until crips and golden; do not let pieces stick to bottom of pan. Strain from oil and serve hot."],
   recipe_type: "Fritters", region: "Tuscany",
   vegan: false, vegetarian: false, pescetarian: false)
 Recipe4.photo.attach(io: open("https://yummaly-aa-seeds.s3-us-west-1.amazonaws.com/R4.jpeg"), filename: "R4.jpeg");
 
 Recipe5 = Recipe.create(
-  name: "Tagliatelle al Prosciutto", ingredients: ["2 1/2 cups all purpose flour", "3 eggs", "7 oz prosciutto", "1 cup cream", "3oz butter", "pinch of nutmeg", "3/4 cup freshly grated Parmesan chesse", "salt and pepper"],
+  name: "Tagliatelle al Prosciutto",
+  ingredients: ["2 1/2 cups all purpose flour", "3 eggs", "7 oz prosciutto", "1 cup cream", "3oz butter", "pinch of nutmeg", "3/4 cup freshly grated Parmesan chesse", "salt and pepper"],
   directions: ["Heap the flour on a board and make a well in the center. Add the eggs and work into a soft, smooth dough. Let rest, covered, while preparing the sauce.", "Combine the prosciutto, cream, butter, nutmeg, and half the Parmesan in a saucepan and heat through. Season with salt and pepper.", "Roll dough out into a thin sheet and cut into tagliatelle, 3/8 in wide. Bring a large pot of salted water to boil and cook the tagliatelle in it until al dente. Drain. Serve topped with the ham sauce and the remaining Parmesan chesse."],
   recipe_type: "Pasta", region: "Central and Northern Italy",
   vegan: false, vegetarian: false, pescetarian: false)

@@ -12,6 +12,30 @@ class Api::RecipesController < ApplicationController
     render "api/recipes/show"
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    if @recipe.save!
+      render "api/recipes/show"
+    else
+      raise "error"
+    end
+  end
+
+  def create
+    @recipe = Recipe.new(params)
+    if @recipe.save! do
+      render "api/recipes/show"
+    else
+      raise "error"
+    end
+  end
+
+  def delete
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    render "api/recipes/index"
+  end
+
   private
 
   def recipe_params
