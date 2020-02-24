@@ -39,10 +39,10 @@ export const logout = () => dispatch => (
   APIUtil.logout().then(user => (
     dispatch(logoutCurrentUser())
   ))
-)
+);
 
 export const clearErrors = () => {
   return {
     type: CLEAR_ERRORS,
-  }
-}
+  };
+};

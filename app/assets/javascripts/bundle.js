@@ -614,6 +614,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _recipe_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recipe_show */ "./frontend/components/recipe_components/recipe_show.jsx");
 /* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -1247,17 +1249,6 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
-/***/ "./frontend/components/splash_pages/user_splash/user_like.jsx":
-/*!********************************************************************!*\
-  !*** ./frontend/components/splash_pages/user_splash/user_like.jsx ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "./frontend/components/splash_pages/user_splash/user_splash.jsx":
 /*!**********************************************************************!*\
   !*** ./frontend/components/splash_pages/user_splash/user_splash.jsx ***!
@@ -1269,8 +1260,6 @@ var mapStateToProps = function mapStateToProps(state) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _user_like__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user_like */ "./frontend/components/splash_pages/user_splash/user_like.jsx");
-/* harmony import */ var _user_like__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_user_like__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1291,7 +1280,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var UserSplash =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1304,6 +1292,12 @@ function (_React$Component) {
   }
 
   _createClass(UserSplash, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchUser(this.props.currentUser);
+      console.log(this.props.currentUser.likes);
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1325,7 +1319,9 @@ function (_React$Component) {
         className: "user-search-container"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-yums"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Favorite Recipes:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Go to your feed and click the \"Like\" button to save recipes")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Favorite Recipes:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Go to your feed and click the \"Like\" button to save recipes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "liked-recipes"
+      })));
     }
   }]);
 
@@ -1350,6 +1346,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _user_splash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user_splash */ "./frontend/components/splash_pages/user_splash/user_splash.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -1362,7 +1360,15 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, null)(_user_splash__WEBPACK_IMPORTED_MODULE_3__["default"]));
+var mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
+  return {
+    fetchUser: function fetchUser(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["default"])(user));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_user_splash__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -1482,6 +1488,9 @@ var likesReducer = function likesReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      return Object.assign({}, state, action.payload.likes);
+
+    case RECEIVE_ALL_RECIPES:
       return Object.assign({}, state, action.payload.likes);
 
     default:
@@ -1745,13 +1754,15 @@ var configureStore = function configureStore() {
 /*!******************************************!*\
   !*** ./frontend/util/recipe_api_util.js ***!
   \******************************************/
-/*! exports provided: fetchAllRecipes, fetchRecipe, postLikeToRecipe, deleteLikeFromRecipe */
+/*! exports provided: fetchAllRecipes, fetchRecipe, postRecipe, editRecipe, postLikeToRecipe, deleteLikeFromRecipe */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllRecipes", function() { return fetchAllRecipes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRecipe", function() { return fetchRecipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postRecipe", function() { return postRecipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editRecipe", function() { return editRecipe; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postLikeToRecipe", function() { return postLikeToRecipe; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLikeFromRecipe", function() { return deleteLikeFromRecipe; });
 var fetchAllRecipes = function fetchAllRecipes() {
@@ -1764,6 +1775,24 @@ var fetchRecipe = function fetchRecipe(recipeId) {
   return $.ajax({
     url: "/api/recipes/".concat(recipeId),
     method: 'GET'
+  });
+};
+var postRecipe = function postRecipe() {
+  return $.ajax({
+    url: '/api/recipes',
+    method: 'POST',
+    data: {
+      data: data
+    }
+  });
+};
+var editRecipe = function editRecipe(recipeId) {
+  return $.ajax({
+    url: "api/recipes/".concat(recipeId, "/edit"),
+    method: 'EDIT',
+    data: {
+      data: data
+    }
   });
 };
 var postLikeToRecipe = function postLikeToRecipe(id) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import UserLike from './user_like'
 
 class UserSplash extends React.Component {
 
@@ -7,6 +6,11 @@ class UserSplash extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchUser(this.props.currentUser);
+    console.log(this.props.currentUser.likes);
+  }
+  
   render() {
     return (
       <div className="show" id="user-show">
@@ -26,6 +30,8 @@ class UserSplash extends React.Component {
         <div className="user-yums">
           <h2>Favorite Recipes:</h2>
           <p>Go to your feed and click the "Like" button to save recipes</p>
+          <div className="liked-recipes">
+          </div>
         </div>
       </div>
     )

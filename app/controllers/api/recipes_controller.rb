@@ -23,7 +23,7 @@ class Api::RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(params)
-    if @recipe.save! do
+    if @recipe.save!
       render "api/recipes/show"
     else
       raise "error"
@@ -41,4 +41,5 @@ class Api::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipes).permit(:id)
   end
+
 end
