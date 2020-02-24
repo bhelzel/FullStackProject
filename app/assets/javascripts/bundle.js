@@ -332,6 +332,14 @@ var App = function App() {
     exact: true,
     path: "/:recipeId",
     component: _recipe_components_recipe_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
+    exact: true,
+    path: "/create-recipe",
+    component: CreateRecipeContainer
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
+    exact: true,
+    path: "edit-recipe",
+    component: EditRecipeContainer
   })));
 };
 
@@ -916,8 +924,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id] // location: ownProps.location.pathname
-
+    currentUser: state.entities.users[state.session.id]
   };
 };
 

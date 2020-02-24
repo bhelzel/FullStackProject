@@ -3,11 +3,11 @@ import React from 'react';
 class RecipeShow extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
-    this.props.fetchRecipe(this.props.match.params.recipeId)
+    this.props.fetchRecipe(this.props.match.params.recipeId);
   }
 
   render() {

@@ -23,6 +23,8 @@ const App = () => (
       <ProtectedRoute exact path="/profile" component={UserSplash} />
       <Route exact path="/" component={IndexSplash} />
       <Route exact path="/:recipeId" component={RecipeShowContainer} />
+      <AuthRoute exact path="/create-recipe" component={CreateRecipeContainer} />
+      <AuthRoute exact path="edit-recipe" component={EditRecipeContainer} />
     </Switch>
   </div>
 );
