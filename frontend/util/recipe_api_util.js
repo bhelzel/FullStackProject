@@ -12,11 +12,11 @@ export const fetchRecipe = recipeId => (
   })
 );
 
-export const postRecipe = () => (
+export const postRecipe = recipe => (
   $.ajax({
     url: '/api/recipes',
     method: 'POST',
-    data: { data }
+    data: { recipe }
   })
 );
 
@@ -25,6 +25,13 @@ export const editRecipe = recipeId => (
     url: `api/recipes/${recipeId}/edit`,
     method: 'EDIT',
     data: { data }
+  })
+);
+
+export const deleteRecipe = recipeId => (
+  $.ajax({
+    url: `api/recipe/${recipeId}`,
+    method: 'DELETE'
   })
 );
 

@@ -2,6 +2,7 @@ import * as RecipeAPIUtil from '../util/recipe_api_util';
 
 export const RECEIVE_ALL_RECIPES = 'RECEIVE_ALL_RECIPES';
 export const RECEIVE_RECIPE = 'RECEIVE_RECIPE';
+export const DELETE_RECIPE = 'DELETE_RECIPE';
 
 export const receiveAllRecipes = recipes => ({
   type: RECEIVE_ALL_RECIPES,
@@ -11,6 +12,11 @@ export const receiveAllRecipes = recipes => ({
 export const receiveRecipe = recipe => ({
   type: RECEIVE_RECIPE,
   recipe
+});
+
+export const deleteRecipe = recipeId => ({
+  type: DELETE_RECIPE,
+  recipeId
 });
 
 export const fetchAllRecipes = () => dispatch => (
@@ -24,6 +30,24 @@ export const fetchRecipe = recipeId => dispatch => (
     dispatch(receiveRecipe(recipe))
   ))
 );
+
+export const createRecipe = recipe => dispatch => (
+  RecipeAPIUtil.postRecipe(recipe).then(recipe => (
+    dispatch(receiveRecipe(recipe))
+  ))
+);
+
+export const editRecipe = recipeId => dispatch => (
+  RecipeAPIUtil.editRecipe(recipeId).then(recipeId => (
+    dispatch(receiveRecipe(recipeId))
+  ))
+);
+
+export const deleteRecipe = recipeId => dispatch => (
+  RecipeAPIUtil.deleteRecipe(recipeId).then(recipeId => (
+    dispatch()
+  ))
+)
 
 export const likeRecipe = id => dispatch => (
   RecipeAPIUtil.postLikeToRecipe(id)

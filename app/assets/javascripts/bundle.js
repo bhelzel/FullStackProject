@@ -119,63 +119,10 @@ var closeModal = function closeModal() {
 /*!********************************************!*\
   !*** ./frontend/actions/recipe_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, receiveAllRecipes, receiveRecipe, fetchAllRecipes, fetchRecipe, likeRecipe, unLikeRecipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! exports provided: RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, receiveAllRecipes, receiveRecipe, fetchAllRecipes, fetchRecipe, createRecipe, editRecipe, likeRecipe, unLikeRecipe */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_RECIPES", function() { return RECEIVE_ALL_RECIPES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_RECIPE", function() { return RECEIVE_RECIPE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllRecipes", function() { return receiveAllRecipes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveRecipe", function() { return receiveRecipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllRecipes", function() { return fetchAllRecipes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRecipe", function() { return fetchRecipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "likeRecipe", function() { return likeRecipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unLikeRecipe", function() { return unLikeRecipe; });
-/* harmony import */ var _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/recipe_api_util */ "./frontend/util/recipe_api_util.js");
-
-var RECEIVE_ALL_RECIPES = 'RECEIVE_ALL_RECIPES';
-var RECEIVE_RECIPE = 'RECEIVE_RECIPE';
-var receiveAllRecipes = function receiveAllRecipes(recipes) {
-  return {
-    type: RECEIVE_ALL_RECIPES,
-    recipes: recipes
-  };
-};
-var receiveRecipe = function receiveRecipe(recipe) {
-  return {
-    type: RECEIVE_RECIPE,
-    recipe: recipe
-  };
-};
-var fetchAllRecipes = function fetchAllRecipes() {
-  return function (dispatch) {
-    return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllRecipes"]().then(function (recipes) {
-      return dispatch(receiveAllRecipes(recipes));
-    });
-  };
-};
-var fetchRecipe = function fetchRecipe(recipeId) {
-  return function (dispatch) {
-    return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchRecipe"](recipeId).then(function (recipe) {
-      return dispatch(receiveRecipe(recipe));
-    });
-  };
-};
-var likeRecipe = function likeRecipe(id) {
-  return function (dispatch) {
-    return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["postLikeToRecipe"](id).then(function (recipe) {
-      return dispatch(receiveRecipe(recipe));
-    });
-  };
-};
-var unLikeRecipe = function unLikeRecipe(id) {
-  return function (dispatch) {
-    return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteLikeFromRecipe"](id).then(function (recipe) {
-      return dispatch(receiveRecipe(recipe));
-    });
-  };
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/frontend/actions/recipe_actions.js: Identifier 'deleteRecipe' has already been declared (46:13)\n\n\u001b[0m \u001b[90m 44 | \u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 45 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteRecipe \u001b[33m=\u001b[39m recipeId \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 47 | \u001b[39m  \u001b[33mRecipeAPIUtil\u001b[39m\u001b[33m.\u001b[39mdeleteRecipe(recipeId)\u001b[33m.\u001b[39mthen(recipeId \u001b[33m=>\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 48 | \u001b[39m    dispatch()\u001b[0m\n\u001b[0m \u001b[90m 49 | \u001b[39m  ))\u001b[0m\n    at Object.raise (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:7012:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:4288:12)\n    at ScopeHandler.declareName (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:4254:12)\n    at Object.checkLVal (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:8852:22)\n    at Object.parseVarId (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11363:10)\n    at Object.parseVar (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11338:12)\n    at Object.parseVarStatement (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11160:10)\n    at Object.parseStatementContent (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:10757:21)\n    at Object.parseStatement (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:10690:17)\n    at Object.parseExportDeclaration (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11877:17)\n    at Object.maybeParseExportDeclaration (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11833:31)\n    at Object.parseExport (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11763:29)\n    at Object.parseStatementContent (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:10794:27)\n    at Object.parseStatement (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:10690:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11266:25)\n    at Object.parseBlockBody (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:11253:10)\n    at Object.parseTopLevel (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:10621:10)\n    at Object.parse (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:12131:10)\n    at parse (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/parser/lib/index.js:12182:38)\n    at parser (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/core/lib/transformation/normalize-file.js:187:34)\n    at normalizeFile (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/core/lib/transformation/normalize-file.js:113:11)\n    at runSync (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 
@@ -1747,72 +1694,6 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
-
-/***/ }),
-
-/***/ "./frontend/util/recipe_api_util.js":
-/*!******************************************!*\
-  !*** ./frontend/util/recipe_api_util.js ***!
-  \******************************************/
-/*! exports provided: fetchAllRecipes, fetchRecipe, postRecipe, editRecipe, postLikeToRecipe, deleteLikeFromRecipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllRecipes", function() { return fetchAllRecipes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRecipe", function() { return fetchRecipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postRecipe", function() { return postRecipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editRecipe", function() { return editRecipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postLikeToRecipe", function() { return postLikeToRecipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLikeFromRecipe", function() { return deleteLikeFromRecipe; });
-var fetchAllRecipes = function fetchAllRecipes() {
-  return $.ajax({
-    url: '/api/recipes',
-    method: 'GET'
-  });
-};
-var fetchRecipe = function fetchRecipe(recipeId) {
-  return $.ajax({
-    url: "/api/recipes/".concat(recipeId),
-    method: 'GET'
-  });
-};
-var postRecipe = function postRecipe() {
-  return $.ajax({
-    url: '/api/recipes',
-    method: 'POST',
-    data: {
-      data: data
-    }
-  });
-};
-var editRecipe = function editRecipe(recipeId) {
-  return $.ajax({
-    url: "api/recipes/".concat(recipeId, "/edit"),
-    method: 'EDIT',
-    data: {
-      data: data
-    }
-  });
-};
-var postLikeToRecipe = function postLikeToRecipe(id) {
-  return $.ajax({
-    url: '/api/likes/',
-    method: 'POST',
-    data: {
-      id: id
-    }
-  });
-};
-var deleteLikeFromRecipe = function deleteLikeFromRecipe(id) {
-  return $.ajax({
-    url: "/api/likes/".concat(id),
-    method: 'DELETE',
-    data: {
-      id: id
-    }
-  });
-};
 
 /***/ }),
 
