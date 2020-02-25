@@ -307,6 +307,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modals_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modals/modal */ "./frontend/components/modals/modal.jsx");
 /* harmony import */ var _splash_pages_index_splash_index_splash_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./splash_pages/index_splash/index_splash_container */ "./frontend/components/splash_pages/index_splash/index_splash_container.jsx");
 /* harmony import */ var _recipe_components_recipe_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./recipe_components/recipe_show_container */ "./frontend/components/recipe_components/recipe_show_container.jsx");
+/* harmony import */ var _recipe_components_create_form_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./recipe_components/create_form_container */ "./frontend/components/recipe_components/create_form_container.jsx");
+
 
 
 
@@ -334,12 +336,8 @@ var App = function App() {
     component: _recipe_components_recipe_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
     exact: true,
-    path: "/create-recipe",
-    component: CreateRecipeContainer
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["AuthRoute"], {
-    exact: true,
-    path: "edit-recipe",
-    component: EditRecipeContainer
+    path: "/createrecipe",
+    component: _recipe_components_create_form_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   })));
 };
 
@@ -511,6 +509,184 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Modal));
+
+/***/ }),
+
+/***/ "./frontend/components/recipe_components/create_form.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/recipe_components/create_form.jsx ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CreateForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var CreateForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CreateForm, _React$Component);
+
+  function CreateForm(props) {
+    var _this;
+
+    _classCallCheck(this, CreateForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CreateForm).call(this, props));
+    _this.state = {
+      name: '',
+      recipeType: '',
+      region: '',
+      vegan: false,
+      vegetarian: false,
+      pescetarian: false,
+      ingredients: [],
+      directions: []
+    };
+    return _this;
+  }
+
+  _createClass(CreateForm, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      this.props.createRecipe(this.state);
+    }
+  }, {
+    key: "addIngredient",
+    value: function addIngredient(item, e) {
+      e.preventDefault(e);
+      this.setState({
+        ingredients: ingredients.push(item)
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "create-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "recipe-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "info-input",
+        type: "text",
+        placeholder: "Recipe Name",
+        value: this.state.name
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "info-input",
+        type: "text",
+        placeholder: "Recipe Region",
+        value: this.state.region
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "info-input",
+        type: "text",
+        placeholder: "Recipe Type",
+        value: this.state.recipeType
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "diet-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "create-label"
+      }, "Vegan:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        className: "checkboxes",
+        value: this.state.vegan
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "class": "create-label"
+      }, "Vegetarian:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        className: "checkboxes",
+        value: this.state.vegatarian
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "class": "create-label"
+      }, "Pescetarian:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        className: "checkboxes",
+        value: this.state.pescetarian
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ingredient-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "ingredient-list"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "create-label"
+      }, "Ingredients:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "list-input",
+        value: this.state.ingredients
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+        className: "direction-list"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "create-label"
+      }, "Directions:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "list-input",
+        value: this.state.directions
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit"
+      })));
+    }
+  }]);
+
+  return CreateForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+
+/***/ }),
+
+/***/ "./frontend/components/recipe_components/create_form_container.jsx":
+/*!*************************************************************************!*\
+  !*** ./frontend/components/recipe_components/create_form_container.jsx ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _create_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./create_form */ "./frontend/components/recipe_components/create_form.jsx");
+/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
+
+
+
+
+
+var mapDispatchToProps = function mapDispatchToProps(recipe) {
+  return function (dispatch) {
+    return {
+      createRecipe: function createRecipe(recipe) {
+        return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__["createRecipe"])(recipe));
+      }
+    };
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDispatchToProps)(_create_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -889,7 +1065,10 @@ var SideBar = function SideBar(_ref) {
     }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "logout-button",
       onClick: logout
-    }, "Log Out"));
+    }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/createrecipe",
+      id: "create-recipe-link"
+    }, "Create Recipe"));
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1519,6 +1698,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
+
 
 
 var likesReducer = function likesReducer() {
@@ -1529,9 +1710,8 @@ var likesReducer = function likesReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, action.payload.likes);
-
-    case RECEIVE_ALL_RECIPES:
-      return Object.assign({}, state, action.payload.likes);
+    // case RECEIVE_ALL_RECIPES:
+    //   return Object.assign({}, state, action.payload.likes);
 
     default:
       return state;

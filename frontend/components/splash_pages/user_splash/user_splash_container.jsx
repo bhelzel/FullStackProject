@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    fetchUser: (user) => dispatch(receiveCurrentUser(user))
+    fetchUser: user => dispatch(receiveCurrentUser(user))
   };
 };
 

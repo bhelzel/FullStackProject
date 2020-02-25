@@ -33,6 +33,7 @@ const SideBar = ({currentUser, logout, openModal}) => {
         </div>
       </Link>
       <button className="logout-button" onClick={logout}>Log Out</button>
+      <Link to="/createrecipe" id="create-recipe-link">Create Recipe</Link>
     </div>
   );
 
