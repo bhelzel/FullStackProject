@@ -16,6 +16,7 @@ const SideBar = ({currentUser, logout, openModal}) => {
           Sign Up / Log In
         </button>
       </nav>
+      <Link to="/createrecipe" id="create-recipe-link">Create Recipe</Link>
     </div>
   );
 

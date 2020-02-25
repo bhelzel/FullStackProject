@@ -15,6 +15,7 @@ import Modal from './modals/modal';
 import IndexSplash from './splash_pages/index_splash/index_splash_container';
 import RecipeShowContainer from './recipe_components/recipe_show_container';
 import CreateRecipeContainer from './recipe_components/create_form_container';
+import TestForm from './recipe_components/test_form';
 
 const App = () => (
   <div className="wrapper">
@@ -23,8 +24,8 @@ const App = () => (
     <Switch>
       <ProtectedRoute exact path="/profile" component={UserSplash} />
       <Route exact path="/" component={IndexSplash} />
-      <Route exact path="/:recipeId" component={RecipeShowContainer} />
-      <AuthRoute exact path="/createrecipe" component={CreateRecipeContainer} />
+      <Route exact path="/recipes/:recipeId" component={RecipeShowContainer} />
+      <Route exact path="/createrecipe" component={CreateRecipeContainer} />
       {/* <AuthRoute exact path="edit-recipe" component={EditRecipeContainer} /> */}
     </Switch>
   </div>

@@ -13,7 +13,7 @@ export const RecipeIndexItem = ({ recipe, currentUser, likeRecipe, unLikeRecipe 
         </div>
         <br/>
         <div className="recipe-title-button">
-            <Link to={`/${recipe.id}`} className="show-link" ><h5 className="recipe-name">{recipe.name}</h5></Link>
+            <Link to={`/recipes/${recipe.id}`} className="show-link" ><h5 className="recipe-name">{recipe.name}</h5></Link>
         </div>
       </div>
     )

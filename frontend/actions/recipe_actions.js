@@ -31,11 +31,11 @@ export const fetchRecipe = recipeId => dispatch => (
   ))
 );
 
-export const createRecipe = recipe => dispatch => (
-  RecipeAPIUtil.postRecipe(recipe).then(recipe => (
+export const postRecipe = recipe => dispatch => {
+  return RecipeAPIUtil.postRecipe(recipe).then(recipe => (
     dispatch(receiveRecipe(recipe))
-  ))
-);
+  ));
+};
 
 export const editRecipe = recipeId => dispatch => (
   RecipeAPIUtil.editRecipe(recipeId).then(recipeId => (

@@ -17,20 +17,30 @@ export default class CreateForm extends React.Component {
     }
 
     handleSubmit(e) {
+        // e.stopPropogation();
+        debugger;
         e.preventDefault();
         this.props.createRecipe(this.state);
     }
 
     addIngredient(item, e) {
-        e.preventDefault(e);
+        e.preventDefault();
         this.setState({
             ingredients: ingredients.push(item)
         });
     }
+
+    addDirection(item, e) {
+        e.preventDefault();
+        this.setState({
+            directions: directions.push(item)
+        });
+    }
+
     render() {
         return(
             <div className="create-container">
-                <form className="create-form">
+                <form className="create-form" onSubmit={this.handleSubmit}>
                     <div className="recipe-info">
                         <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name}/>
                         <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} />
@@ -50,14 +60,13 @@ export default class CreateForm extends React.Component {
                     <div className="ingredient-div"> 
                         <ul className="ingredient-list"></ul>  
                         <label className="create-label">Ingredients:
-                            <input type="text" className="list-input" value={this.state.ingredients}/>
+                            <input type="text" className="list-input" />
                         </label>
                         <ol className="direction-list"></ol>
                         <label className="create-label">Directions:
-                            <input type="text" className="list-input" value={this.state.directions}/>
+                            <input type="text" className="list-input"/>
                         </label>
                     </div>
-                    <button type="submit"></button>
                 </form>
             </div>
         )

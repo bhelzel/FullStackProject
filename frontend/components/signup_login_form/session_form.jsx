@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearErrors()
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -23,14 +23,14 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.stopPropagation()
+    e.stopPropagation();
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
       .then(
-        () => { this.props.closeModal() },
-        () => { this.resetState() }
-      )
+        () => { this.props.closeModal(); },
+        () => { this.resetState(); }
+      );
   }
 
   resetState() {
