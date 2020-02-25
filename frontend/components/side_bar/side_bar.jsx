@@ -16,7 +16,6 @@ const SideBar = ({currentUser, logout, openModal}) => {
           Sign Up / Log In
         </button>
       </nav>
-      <Link to="/createrecipe" id="create-recipe-link">Create Recipe</Link>
     </div>
   );
 
@@ -34,7 +33,7 @@ const SideBar = ({currentUser, logout, openModal}) => {
         </div>
       </Link>
       <button className="logout-button" onClick={logout}>Log Out</button>
-      <Link to="/createrecipe" id="create-recipe-link">Create Recipe</Link>
+      <button id="create-recipe-link"><Link to="/createrecipe" id="create-link">Create Recipe</Link></button>
     </div>
   );
 

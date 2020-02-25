@@ -17,8 +17,7 @@ export default class CreateForm extends React.Component {
     }
 
     handleSubmit(e) {
-        // e.stopPropogation();
-        debugger;
+        e.stopPropogation();
         e.preventDefault();
         this.props.createRecipe(this.state);
     }

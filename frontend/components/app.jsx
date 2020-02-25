@@ -15,7 +15,6 @@ import Modal from './modals/modal';
 import IndexSplash from './splash_pages/index_splash/index_splash_container';
 import RecipeShowContainer from './recipe_components/recipe_show_container';
 import CreateRecipeContainer from './recipe_components/create_form_container';
-import TestForm from './recipe_components/test_form';
 
 const App = () => (
   <div className="wrapper">
