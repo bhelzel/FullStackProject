@@ -89,7 +89,7 @@ export default class CreateForm extends React.Component {
                     </label>
                 </div>
                 <div className="ingredient-div"> 
-                    <div>
+                    <div className="ingredients">
                         <ul id="ingredient-list">
                             {
                                 this.state.ingredients.length > 0 ?
@@ -100,25 +100,25 @@ export default class CreateForm extends React.Component {
                             }
                         </ul>  
                         <label className="create-label">Ingredients:
-                            <input type="text" className="list-input" id="ingredient-input" />
-                            <button id="add-ingredient" onClick={this.addIngredient}>Add Ingredient</button>
+                            <input type="text" className="list-input" onChange={this.update('ingredient')} id="ingredient-input" />
+                            <button id="add-ingredient" onClick={this.addIngredient} >Add Ingredient</button>
                         </label>
                         
                     </div>
-                    <div>
+                    <div className="directions">
                         <ol id="direction-list">
                             {
                                 this.state.directions.length > 0 ?
                                 this.state.directions.map(direction => {
-                                    return (<li>direction</li>)
+                                    return (<li>{direction}</li>)
                                 }) :
                                 ''
                             }
                         </ol>
                         <label className="create-label">Directions:
                             <input type="text" id="direction-input" className="list-input" onChange={this.update('directions')} />
-                        </label>
-                        <button type="submit" id="add-direction">Add Direction</button>
+                            <button id="add-direction">Add Direction</button>
+                        </label>                     
                     </div>
                 </div>
                 <button type="submit">Create Recipe</button>

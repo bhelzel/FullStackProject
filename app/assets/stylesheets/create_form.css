@@ -26,3 +26,22 @@
     justify-content: space-evenly;
     padding: 15px;
 }
+
+.ingredient-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.ingredients {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.directions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -678,7 +678,9 @@ function (_React$Component) {
         onClick: this.update('pescetarian')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ingredient-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ingredients"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "ingredient-list"
       }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredient);
@@ -687,14 +689,17 @@ function (_React$Component) {
       }, "Ingredients:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "list-input",
+        onChange: this.update('ingredient'),
         id: "ingredient-input"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "add-ingredient",
         onClick: this.addIngredient
-      }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+      }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "directions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
         id: "direction-list"
       }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "direction");
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, direction);
       }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
       }, "Directions:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -702,10 +707,9 @@ function (_React$Component) {
         id: "direction-input",
         className: "list-input",
         onChange: this.update('directions')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit",
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "add-direction"
-      }, "Add Direction"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Add Direction")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
       }, "Create Recipe"));
     }
