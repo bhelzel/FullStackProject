@@ -526,6 +526,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -571,51 +573,86 @@ function (_React$Component) {
   _createClass(CreateForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.stopPropogation();
-      e.preventDefault();
-      this.props.createRecipe(this.state);
+      e.preventDefault(); // this.props.postRecipe({
+      //     name: 
+      // })
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      if (field === 'vegan' || field === 'vegetarian' || field === 'pescetarian') {
+        return function (e) {
+          _this2.state.field === false ? _this2.setState(_defineProperty({}, field, true)) : _this2.setState(_defineProperty({}, field, false));
+        };
+      } else if (field === 'ingredients') {
+        return function (e) {
+          var ingredients = _this2.state.ingredients;
+          ingredients.push(e.target.value);
+
+          _this2.setState(_defineProperty({}, field, ingredients));
+        };
+      } else if (field === 'directions') {
+        var direction = [];
+        return function (e) {
+          while (clicked === false) {
+            direction.push(e.target.value);
+            continue;
+          }
+
+          var directions = _this2.state.directions;
+          directions.push(direction.join(''));
+
+          _this2.setState(_defineProperty({}, field, directions));
+        };
+      }
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.target.value));
+      };
     }
   }, {
     key: "addIngredient",
-    value: function addIngredient(item, e) {
-      e.preventDefault();
-      this.setState({
-        ingredients: ingredients.push(item)
-      });
+    value: function addIngredient() {
+      console.log(document);
+      var item = document.getElementById('ingredient-input');
+      var ingredientsList = this.state.ingredients.push(item.value);
+      this.setState(_defineProperty({}, ingredients, ingredientsList));
+      item.innerHTML = '';
     }
   }, {
     key: "addDirection",
-    value: function addDirection(item, e) {
-      e.preventDefault();
-      this.setState({
-        directions: directions.push(item)
-      });
+    value: function addDirection() {
+      var item = document.getElementById('direction-input');
+      item.innerHTML = '';
+      console.log(this.state.directions);
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "create-form",
-        onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "info-input",
         type: "text",
         placeholder: "Recipe Name",
-        value: this.state.name
+        value: this.state.name,
+        onChange: this.update('name')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "info-input",
         type: "text",
         placeholder: "Recipe Region",
-        value: this.state.region
+        value: this.state.region,
+        onChange: this.update('region')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "info-input",
         type: "text",
         placeholder: "Recipe Type",
-        value: this.state.recipeType
+        value: this.state.recipeType,
+        onChange: this.update('recipeType')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "diet-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -623,36 +660,54 @@ function (_React$Component) {
       }, "Vegan:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         className: "checkboxes",
-        value: this.state.vegan
+        value: this.state.vegan,
+        onClick: this.update('vegan')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "class": "create-label"
+        className: "create-label"
       }, "Vegetarian:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         className: "checkboxes",
-        value: this.state.vegatarian
+        value: this.state.vegatarian,
+        onClick: this.update('vegetarian')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "class": "create-label"
+        className: "create-label"
       }, "Pescetarian:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         className: "checkboxes",
-        value: this.state.pescetarian
+        value: this.state.pescetarian,
+        onClick: this.update('pescetarian')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ingredient-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "ingredient-list"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        id: "ingredient-list"
+      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredient);
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
       }, "Ingredients:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "list-input"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
-        className: "direction-list"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "list-input",
+        id: "ingredient-input"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "add-ingredient",
+        onClick: this.addIngredient
+      }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+        id: "direction-list"
+      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "direction");
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
       }, "Directions:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "list-input"
-      })))));
+        id: "direction-input",
+        className: "list-input",
+        onChange: this.update('directions')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        id: "add-direction"
+      }, "Add Direction"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit"
+      }, "Create Recipe"));
     }
   }]);
 

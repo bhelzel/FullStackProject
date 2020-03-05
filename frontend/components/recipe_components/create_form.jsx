@@ -17,57 +17,112 @@ export default class CreateForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.stopPropogation();
         e.preventDefault();
-        this.props.createRecipe(this.state);
+        // this.props.postRecipe({
+        //     name: 
+        // })
     }
 
-    addIngredient(item, e) {
-        e.preventDefault();
-        this.setState({
-            ingredients: ingredients.push(item)
+    update(field) {
+        if (field === 'vegan' || field === 'vegetarian' || field === 'pescetarian') {
+            return e => {
+                this.state.field === false ?
+                this.setState({ [field]: true }) :
+                this.setState({ [field]: false }); 
+            };
+        } else if (field === 'ingredients') {
+            return e => { 
+                let ingredients = this.state.ingredients;
+                ingredients.push(e.target.value);
+                this.setState({ [field]: ingredients });
+            };
+        } else if (field === 'directions') { 
+            let direction = [];
+            return e => {
+                while (clicked === false) {
+                    direction.push(e.target.value);
+                    continue;
+                }
+                let directions = this.state.directions;
+                directions.push(direction.join(''));
+                this.setState({ [field]: directions });
+            };
+        }
+        return e => this.setState({
+            [field]: e.target.value
         });
     }
 
-    addDirection(item, e) {
-        e.preventDefault();
+    addIngredient() {
+        console.log(document);
+        let item = document.getElementById('ingredient-input');
+        let ingredientsList = this.state.ingredients.push(item.value);
         this.setState({
-            directions: directions.push(item)
+            [ingredients]: ingredientsList
         });
+        item.innerHTML = '';
+    }
+
+    addDirection() {
+        let item = document.getElementById('direction-input');
+        item.innerHTML = '';
+        console.log(this.state.directions);
     }
 
     render() {
         return(
-            <div className="create-container">
-                <form className="create-form" onSubmit={this.handleSubmit}>
-                    <div className="recipe-info">
-                        <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name}/>
-                        <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} />
-                        <input className="info-input" type="text" placeholder="Recipe Type" value={this.state.recipeType} />
-                    </div>
-                    <div className="diet-div">
-                        <label className="create-label">Vegan:
-                            <input type="checkbox" className="checkboxes" value={this.state.vegan}/>
-                        </label>
-                        <label class="create-label">Vegetarian:
-                            <input type="checkbox" className="checkboxes" value={this.state.vegatarian}/>
-                        </label>
-                        <label class="create-label">Pescetarian:
-                            <input type="checkbox" className="checkboxes" value={this.state.pescetarian}/>
-                        </label>
-                    </div>
-                    <div className="ingredient-div"> 
-                        <ul className="ingredient-list"></ul>  
+            <form className="create-container">
+                <div className="recipe-info">
+                    <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name} onChange={this.update('name')} />
+                    <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} onChange={this.update('region')}/>
+                    <input className="info-input" type="text" placeholder="Recipe Type" value={this.state.recipeType} onChange={this.update('recipeType')} />
+                </div>
+                <div className="diet-div">
+                    <label className="create-label">Vegan:
+                        <input type="checkbox" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')}/>
+                    </label>
+                    <label className="create-label">Vegetarian:
+                        <input type="checkbox" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
+                    </label>
+                    <label className="create-label">Pescetarian:
+                        <input type="checkbox" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
+                    </label>
+                </div>
+                <div className="ingredient-div"> 
+                    <div>
+                        <ul id="ingredient-list">
+                            {
+                                this.state.ingredients.length > 0 ?
+                                this.state.ingredients.map(ingredient => {
+                                    return (<li>{ingredient}</li>)
+                                }) :
+                                ''
+                            }
+                        </ul>  
                         <label className="create-label">Ingredients:
-                            <input type="text" className="list-input" />
+                            <input type="text" className="list-input" id="ingredient-input" />
+                            <button id="add-ingredient" onClick={this.addIngredient}>Add Ingredient</button>
                         </label>
-                        <ol className="direction-list"></ol>
-                        <label className="create-label">Directions:
-                            <input type="text" className="list-input"/>
-                        </label>
+                        
                     </div>
-                </form>
-            </div>
+                    <div>
+                        <ol id="direction-list">
+                            {
+                                this.state.directions.length > 0 ?
+                                this.state.directions.map(direction => {
+                                    return (<li>direction</li>)
+                                }) :
+                                ''
+                            }
+                        </ol>
+                        <label className="create-label">Directions:
+                            <input type="text" id="direction-input" className="list-input" onChange={this.update('directions')} />
+                        </label>
+                        <button type="submit" id="add-direction">Add Direction</button>
+                    </div>
+                </div>
+                <button type="submit">Create Recipe</button>
+            </form>
         )
     }
 }
