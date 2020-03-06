@@ -16,6 +16,16 @@ export default class CreateForm extends React.Component {
         };
     }
 
+    checkState() {
+        let ingredientList = document.getElementById('ingredient-list');
+        let directionList = document.getElementById('direction-list');
+        if(this.state.ingredients.length > 0) {
+            ingredientList.style.display = 'flex';
+        } else if (this.state.directions.length > 0) {
+            directionList.style.display = 'flex'; 
+        }  
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         // this.props.postRecipe({
@@ -53,6 +63,7 @@ export default class CreateForm extends React.Component {
     }
 
     render() {
+        this.checkState();
         return(
             <form className="create-container">
                 <div className="recipe-info">
@@ -93,15 +104,21 @@ export default class CreateForm extends React.Component {
                     </div>
                 </div>
                 <div className="diet-div">
-                    <label className="create-label">Vegan:</label>
-                    <input type="checkbox" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')} />
-                    
-                    <label className="create-label">Vegetarian:</label>
-                    <input type="checkbox" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
-                    
-                    <label className="create-label">Pescetarian:</label>
-                    <input type="checkbox" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
-                    
+                    <p>Vegetarian:</p>
+                    <div className="check-container">
+                        <input type="checkbox" id="checkbox1" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')} />     
+                        <label for="checkbox1" className="create-label"></label>
+                    </div> 
+                    <p>Vegan:</p>
+                    <div className="check-container">
+                        <input type="checkbox" id="checkbox2" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
+                        <label for="checkbox2" className="create-label"></label>
+                    </div>
+                    <p>Pescetarian:</p>
+                    <div className="check-container">
+                        <input type="checkbox" id="checkbox3" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
+                        <label for="checkbox3" className="create-label"></label>
+                    </div>
                 </div>
                 <button type="submit" className="create-submit">Create Recipe</button>
             </form>

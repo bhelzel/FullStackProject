@@ -93,10 +93,42 @@
     font-family: europa-regular, sans-serif;
     font-size: 20px;
     font-weight: 700;
+    display: none;
+    border: 2px solid #4B9B96;
 }
 
 .create-label {
     font-family: europa-regular, sans-serif;
     font-size: 20px;
     font-weight: 700;
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.check-container {
+    width: 35px;
+    height: 15px;
+    background: #E1611F;
+    margin: 20px 80px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.check-container label {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    background: #ccc;
+}
+
+.check-container input[type=checkbox]:checked + label {
+    left: 27px;
 }

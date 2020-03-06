@@ -571,6 +571,18 @@ function (_React$Component) {
   }
 
   _createClass(CreateForm, [{
+    key: "checkState",
+    value: function checkState() {
+      var ingredientList = document.getElementById('ingredient-list');
+      var directionList = document.getElementById('direction-list');
+
+      if (this.state.ingredients.length > 0) {
+        ingredientList.style.display = 'flex';
+      } else if (this.state.directions.length > 0) {
+        directionList.style.display = 'flex';
+      }
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault(); // this.props.postRecipe({
@@ -615,6 +627,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      this.checkState();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -677,28 +690,40 @@ function (_React$Component) {
         onClick: this.update('directions')
       }, "Add Direction")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "diet-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "create-label"
-      }, "Vegan:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
+        id: "checkbox1",
         className: "checkboxes",
         value: this.state.vegan,
         onClick: this.update('vegan')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "checkbox1",
         className: "create-label"
-      }, "Vegetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
+        id: "checkbox2",
         className: "checkboxes",
         value: this.state.vegatarian,
         onClick: this.update('vegetarian')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "checkbox2",
         className: "create-label"
-      }, "Pescetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
+        id: "checkbox3",
         className: "checkboxes",
         value: this.state.pescetarian,
         onClick: this.update('pescetarian')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "checkbox3",
+        className: "create-label"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "create-submit"
       }, "Create Recipe"));
