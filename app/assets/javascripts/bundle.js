@@ -589,10 +589,8 @@ function (_React$Component) {
       } else if (field === 'ingredients') {
         return function (e) {
           var ingredient = document.getElementById('ingredient-input');
-
-          var ingredients = _this2.state.ingredients.push(ingredient.value);
-
-          console.log(_this2.state.ingredients);
+          var ingredients = _this2.state.ingredients;
+          ingredients.push(ingredient.value);
 
           _this2.setState(_defineProperty({}, field, ingredients));
 
@@ -601,10 +599,12 @@ function (_React$Component) {
       } else if (field === 'directions') {
         return function (e) {
           var direction = document.getElementById('direction-input');
-
-          var directions = _this2.state.directions.push(direction.value);
+          var directions = _this2.state.directions;
+          directions.push(direction.value);
 
           _this2.setState(_defineProperty({}, field, directions));
+
+          direction.value = '';
         };
       }
 

@@ -33,16 +33,18 @@ export default class CreateForm extends React.Component {
         } else if (field === 'ingredients') {
             return e => { 
                 let ingredient = document.getElementById('ingredient-input');
-                let ingredients = this.state.ingredients.push(ingredient.value);
-                console.log(this.state.ingredients);
+                let ingredients = this.state.ingredients;
+                ingredients.push(ingredient.value);
                 this.setState({ [field]: ingredients });
                 ingredient.value = '';
             };
         } else if (field === 'directions') { 
             return e => {
                 let direction = document.getElementById('direction-input');
-                let directions = this.state.directions.push(direction.value);
+                let directions = this.state.directions;
+                directions.push(direction.value);
                 this.setState({ [field]: directions });
+                direction.value = '';
             };
         }
         return e => this.setState({
