@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
+    border: 2px solid #4B9B96;
 }
 
 .recipe-info {
@@ -26,6 +27,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+
     padding: 15px;
 }
 
@@ -40,7 +43,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 }
 
 .add-div {
@@ -50,6 +52,11 @@
     align-items: center;
 }
 
+.textarea-input {
+    height: 100px;
+    width: 300px;
+    font-size: 20px;
+}
 .directions {
     display: flex;
     flex-direction: column;
@@ -60,8 +67,36 @@
     width: 150px;
     align-self: center;
     margin-top: 40px;
+    width: 250px;
+    height: 40px;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #4B9B96;
+    font-family: europa-regular, sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
 }
 
 .add-btn {
     margin-top: 20px;
+    width: 175px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: #4B9B96;
+    font-family: europa-regular, sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.list {
+    font-family: europa-regular, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.create-label {
+    font-family: europa-regular, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
 }

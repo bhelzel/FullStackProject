@@ -642,14 +642,15 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ingredients"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "list",
         id: "ingredient-list"
       }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredient);
       }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "add-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         type: "text",
-        className: "info-input",
+        className: "textarea-input",
         id: "ingredient-input",
         placeholder: "Ingredient"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -659,15 +660,16 @@ function (_React$Component) {
       }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "directions"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+        className: "list",
         id: "direction-list"
       }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, direction);
       }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "add-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         type: "text",
         id: "direction-input",
-        className: "info-input",
+        className: "textarea-input",
         placeholder: "Direction"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "add-direction",
@@ -677,26 +679,26 @@ function (_React$Component) {
         className: "diet-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
-      }, "Vegan:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Vegan:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         className: "checkboxes",
         value: this.state.vegan,
         onClick: this.update('vegan')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
-      }, "Vegetarian:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Vegetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         className: "checkboxes",
         value: this.state.vegatarian,
         onClick: this.update('vegetarian')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
-      }, "Pescetarian:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Pescetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         className: "checkboxes",
         value: this.state.pescetarian,
         onClick: this.update('pescetarian')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "create-submit"
       }, "Create Recipe"));

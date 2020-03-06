@@ -62,7 +62,7 @@ export default class CreateForm extends React.Component {
                 </div>
                 <div className="ingredient-div"> 
                     <div className="ingredients">
-                        <ul id="ingredient-list">
+                        <ul className="list" id="ingredient-list">
                             {
                                 this.state.ingredients.length > 0 ?
                                 this.state.ingredients.map(ingredient => {
@@ -72,12 +72,12 @@ export default class CreateForm extends React.Component {
                             }
                         </ul>  
                         <div className="add-div">
-                            <input type="text" className="info-input" id="ingredient-input" placeholder="Ingredient"/>
+                            <textarea type="text" className="textarea-input" id="ingredient-input" placeholder="Ingredient"/>
                             <button id="add-ingredient" className="add-btn" onClick={this.update('ingredients')} >Add Ingredient</button>
                         </div>                      
                     </div>
                     <div className="directions">
-                        <ol id="direction-list">
+                        <ol className="list" id="direction-list">
                             {
                                 this.state.directions.length > 0 ?
                                 this.state.directions.map(direction => {
@@ -87,21 +87,21 @@ export default class CreateForm extends React.Component {
                             }
                         </ol>
                         <div className="add-div">
-                            <input type="text" id="direction-input" className="info-input" placeholder="Direction"/>
+                            <textarea type="text" id="direction-input" className="textarea-input" placeholder="Direction"/>
                             <button id="add-direction" className="add-btn" onClick={this.update('directions')}>Add Direction</button>
                         </div>        
                     </div>
                 </div>
                 <div className="diet-div">
-                    <label className="create-label">Vegan:
-                        <input type="checkbox" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')} />
-                    </label>
-                    <label className="create-label">Vegetarian:
-                        <input type="checkbox" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
-                    </label>
-                    <label className="create-label">Pescetarian:
-                        <input type="checkbox" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
-                    </label>
+                    <label className="create-label">Vegan:</label>
+                    <input type="checkbox" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')} />
+                    
+                    <label className="create-label">Vegetarian:</label>
+                    <input type="checkbox" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
+                    
+                    <label className="create-label">Pescetarian:</label>
+                    <input type="checkbox" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
+                    
                 </div>
                 <button type="submit" className="create-submit">Create Recipe</button>
             </form>
