@@ -588,21 +588,21 @@ function (_React$Component) {
         };
       } else if (field === 'ingredients') {
         return function (e) {
-          var ingredients = _this2.state.ingredients;
-          ingredients.push(e.target.value);
+          var ingredient = document.getElementById('ingredient-input');
+
+          var ingredients = _this2.state.ingredients.push(ingredient.value);
+
+          console.log(_this2.state.ingredients);
 
           _this2.setState(_defineProperty({}, field, ingredients));
+
+          ingredient.value = '';
         };
       } else if (field === 'directions') {
-        var direction = [];
         return function (e) {
-          while (clicked === false) {
-            direction.push(e.target.value);
-            continue;
-          }
+          var direction = document.getElementById('direction-input');
 
-          var directions = _this2.state.directions;
-          directions.push(direction.join(''));
+          var directions = _this2.state.directions.push(direction.value);
 
           _this2.setState(_defineProperty({}, field, directions));
         };
@@ -615,7 +615,6 @@ function (_React$Component) {
   }, {
     key: "addIngredient",
     value: function addIngredient() {
-      console.log(document);
       var item = document.getElementById('ingredient-input');
       var ingredientsList = this.state.ingredients.push(item.value);
       this.setState(_defineProperty({}, ingredients, ingredientsList));
@@ -626,11 +625,11 @@ function (_React$Component) {
     value: function addDirection() {
       var item = document.getElementById('direction-input');
       item.innerHTML = '';
-      console.log(this.state.directions);
     }
   }, {
     key: "render",
     value: function render() {
+      console.log(this.state.ingredients);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -684,25 +683,28 @@ function (_React$Component) {
         id: "ingredient-list"
       }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredient);
-      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
-      }, "Ingredients:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Ingredients:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "list-input",
-        onChange: this.update('ingredient'),
         id: "ingredient-input"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "add-ingredient",
-        onClick: this.addIngredient
+        onClick: this.update('ingredients')
       }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "directions"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
         id: "direction-list"
       }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, direction);
-      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
-      }, "Directions:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Directions:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         id: "direction-input",
         className: "list-input",

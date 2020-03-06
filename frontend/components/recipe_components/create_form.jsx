@@ -32,19 +32,16 @@ export default class CreateForm extends React.Component {
             };
         } else if (field === 'ingredients') {
             return e => { 
-                let ingredients = this.state.ingredients;
-                ingredients.push(e.target.value);
+                let ingredient = document.getElementById('ingredient-input');
+                let ingredients = this.state.ingredients.push(ingredient.value);
+                console.log(this.state.ingredients);
                 this.setState({ [field]: ingredients });
+                ingredient.value = '';
             };
         } else if (field === 'directions') { 
-            let direction = [];
             return e => {
-                while (clicked === false) {
-                    direction.push(e.target.value);
-                    continue;
-                }
-                let directions = this.state.directions;
-                directions.push(direction.join(''));
+                let direction = document.getElementById('direction-input');
+                let directions = this.state.directions.push(direction.value);
                 this.setState({ [field]: directions });
             };
         }
@@ -54,7 +51,6 @@ export default class CreateForm extends React.Component {
     }
 
     addIngredient() {
-        console.log(document);
         let item = document.getElementById('ingredient-input');
         let ingredientsList = this.state.ingredients.push(item.value);
         this.setState({
@@ -66,10 +62,10 @@ export default class CreateForm extends React.Component {
     addDirection() {
         let item = document.getElementById('direction-input');
         item.innerHTML = '';
-        console.log(this.state.directions);
     }
 
     render() {
+        console.log(this.state.ingredients);
         return(
             <form className="create-container">
                 <div className="recipe-info">
@@ -99,11 +95,11 @@ export default class CreateForm extends React.Component {
                                 ''
                             }
                         </ul>  
-                        <label className="create-label">Ingredients:
-                            <input type="text" className="list-input" onChange={this.update('ingredient')} id="ingredient-input" />
-                            <button id="add-ingredient" onClick={this.addIngredient} >Add Ingredient</button>
-                        </label>
-                        
+                        <div className="add-div">
+                            <label className="create-label">Ingredients:</label>
+                            <input type="text" className="list-input" id="ingredient-input" />
+                            <button id="add-ingredient" onClick={this.update('ingredients')} >Add Ingredient</button>
+                        </div>                      
                     </div>
                     <div className="directions">
                         <ol id="direction-list">
@@ -115,10 +111,11 @@ export default class CreateForm extends React.Component {
                                 ''
                             }
                         </ol>
-                        <label className="create-label">Directions:
+                        <div className="add-div">
+                            <label className="create-label">Directions:</label>
                             <input type="text" id="direction-input" className="list-input" onChange={this.update('directions')} />
                             <button id="add-direction">Add Direction</button>
-                        </label>                     
+                        </div>        
                     </div>
                 </div>
                 <button type="submit">Create Recipe</button>
