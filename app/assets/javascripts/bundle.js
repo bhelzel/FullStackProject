@@ -613,20 +613,6 @@ function (_React$Component) {
       };
     }
   }, {
-    key: "addIngredient",
-    value: function addIngredient() {
-      var item = document.getElementById('ingredient-input');
-      var ingredientsList = this.state.ingredients.push(item.value);
-      this.setState(_defineProperty({}, ingredients, ingredientsList));
-      item.innerHTML = '';
-    }
-  }, {
-    key: "addDirection",
-    value: function addDirection() {
-      var item = document.getElementById('direction-input');
-      item.innerHTML = '';
-    }
-  }, {
     key: "render",
     value: function render() {
       console.log(this.state.ingredients);

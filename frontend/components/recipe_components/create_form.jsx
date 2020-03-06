@@ -52,20 +52,6 @@ export default class CreateForm extends React.Component {
         });
     }
 
-    addIngredient() {
-        let item = document.getElementById('ingredient-input');
-        let ingredientsList = this.state.ingredients.push(item.value);
-        this.setState({
-            [ingredients]: ingredientsList
-        });
-        item.innerHTML = '';
-    }
-
-    addDirection() {
-        let item = document.getElementById('direction-input');
-        item.innerHTML = '';
-    }
-
     render() {
         console.log(this.state.ingredients);
         return(
