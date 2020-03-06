@@ -615,7 +615,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state.ingredients);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -693,10 +692,10 @@ function (_React$Component) {
       }, "Directions:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         id: "direction-input",
-        className: "list-input",
-        onChange: this.update('directions')
+        className: "list-input"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "add-direction"
+        id: "add-direction",
+        onClick: this.update('directions')
       }, "Add Direction")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
       }, "Create Recipe"));

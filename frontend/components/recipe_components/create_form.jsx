@@ -53,7 +53,6 @@ export default class CreateForm extends React.Component {
     }
 
     render() {
-        console.log(this.state.ingredients);
         return(
             <form className="create-container">
                 <div className="recipe-info">
@@ -101,8 +100,8 @@ export default class CreateForm extends React.Component {
                         </ol>
                         <div className="add-div">
                             <label className="create-label">Directions:</label>
-                            <input type="text" id="direction-input" className="list-input" onChange={this.update('directions')} />
-                            <button id="add-direction">Add Direction</button>
+                            <input type="text" id="direction-input" className="list-input" />
+                            <button id="add-direction" onClick={this.update('directions')}>Add Direction</button>
                         </div>        
                     </div>
                 </div>
