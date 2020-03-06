@@ -1,6 +1,7 @@
 .create-container {
     display: flex;
     flex-direction: column;
+    padding: 30px;
 }
 
 .recipe-info {
@@ -21,6 +22,7 @@
 }
 
 .diet-div {
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -36,12 +38,30 @@
 
 .ingredients {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+}
+
+.add-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .directions {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+}
+
+.create-submit {
+    width: 150px;
+    align-self: center;
+    margin-top: 40px;
+}
+
+.add-btn {
+    margin-top: 20px;
 }

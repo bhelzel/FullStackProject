@@ -638,6 +638,42 @@ function (_React$Component) {
         value: this.state.recipeType,
         onChange: this.update('recipeType')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ingredient-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ingredients"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        id: "ingredient-list"
+      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredient);
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "info-input",
+        id: "ingredient-input",
+        placeholder: "Ingredient"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "add-ingredient",
+        className: "add-btn",
+        onClick: this.update('ingredients')
+      }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "directions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+        id: "direction-list"
+      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, direction);
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        id: "direction-input",
+        className: "info-input",
+        placeholder: "Direction"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "add-direction",
+        className: "add-btn",
+        onClick: this.update('directions')
+      }, "Add Direction")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "diet-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "create-label"
@@ -660,44 +696,9 @@ function (_React$Component) {
         className: "checkboxes",
         value: this.state.pescetarian,
         onClick: this.update('pescetarian')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ingredient-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ingredients"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        id: "ingredient-list"
-      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredient);
-      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "add-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "create-label"
-      }, "Ingredients:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "list-input",
-        id: "ingredient-input"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "add-ingredient",
-        onClick: this.update('ingredients')
-      }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "directions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
-        id: "direction-list"
-      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, direction);
-      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "add-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "create-label"
-      }, "Directions:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        id: "direction-input",
-        className: "list-input"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "add-direction",
-        onClick: this.update('directions')
-      }, "Add Direction")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "create-submit"
       }, "Create Recipe"));
     }
   }]);

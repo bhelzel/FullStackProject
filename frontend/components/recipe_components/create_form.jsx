@@ -60,17 +60,6 @@ export default class CreateForm extends React.Component {
                     <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} onChange={this.update('region')}/>
                     <input className="info-input" type="text" placeholder="Recipe Type" value={this.state.recipeType} onChange={this.update('recipeType')} />
                 </div>
-                <div className="diet-div">
-                    <label className="create-label">Vegan:
-                        <input type="checkbox" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')}/>
-                    </label>
-                    <label className="create-label">Vegetarian:
-                        <input type="checkbox" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
-                    </label>
-                    <label className="create-label">Pescetarian:
-                        <input type="checkbox" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
-                    </label>
-                </div>
                 <div className="ingredient-div"> 
                     <div className="ingredients">
                         <ul id="ingredient-list">
@@ -83,9 +72,8 @@ export default class CreateForm extends React.Component {
                             }
                         </ul>  
                         <div className="add-div">
-                            <label className="create-label">Ingredients:</label>
-                            <input type="text" className="list-input" id="ingredient-input" />
-                            <button id="add-ingredient" onClick={this.update('ingredients')} >Add Ingredient</button>
+                            <input type="text" className="info-input" id="ingredient-input" placeholder="Ingredient"/>
+                            <button id="add-ingredient" className="add-btn" onClick={this.update('ingredients')} >Add Ingredient</button>
                         </div>                      
                     </div>
                     <div className="directions">
@@ -99,13 +87,23 @@ export default class CreateForm extends React.Component {
                             }
                         </ol>
                         <div className="add-div">
-                            <label className="create-label">Directions:</label>
-                            <input type="text" id="direction-input" className="list-input" />
-                            <button id="add-direction" onClick={this.update('directions')}>Add Direction</button>
+                            <input type="text" id="direction-input" className="info-input" placeholder="Direction"/>
+                            <button id="add-direction" className="add-btn" onClick={this.update('directions')}>Add Direction</button>
                         </div>        
                     </div>
                 </div>
-                <button type="submit">Create Recipe</button>
+                <div className="diet-div">
+                    <label className="create-label">Vegan:
+                        <input type="checkbox" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')} />
+                    </label>
+                    <label className="create-label">Vegetarian:
+                        <input type="checkbox" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
+                    </label>
+                    <label className="create-label">Pescetarian:
+                        <input type="checkbox" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
+                    </label>
+                </div>
+                <button type="submit" className="create-submit">Create Recipe</button>
             </form>
         )
     }
