@@ -4,9 +4,9 @@ const usersReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, state, { [action.payload.user.id]: action.payload.user });
+      return Object.assign({}, state, { [action.payload.id]: action.payload });
     case LOGOUT_CURRENT_USER:
-      return Object.assign({})
+      return Object.assign({});
     default:
       return state;
   }

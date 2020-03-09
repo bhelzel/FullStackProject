@@ -1652,17 +1652,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state, ownProps) {
+var mapStateToProps = function mapStateToProps(state) {
   return {
     currentUser: state.entities.users[state.session.id],
     likes: state.entities.likes
   };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchUser: function fetchUser(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["default"])(user));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["receiveCurrentUser"])(user));
     }
   };
 };
@@ -1956,7 +1956,7 @@ var sessionReducer = function sessionReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return {
-        id: action.payload.user.id
+        id: action.payload.id
       };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
@@ -2011,7 +2011,7 @@ var usersReducer = function usersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      return Object.assign({}, state, _defineProperty({}, action.payload.user.id, action.payload.user));
+      return Object.assign({}, state, _defineProperty({}, action.payload.id, action.payload));
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
       return Object.assign({});

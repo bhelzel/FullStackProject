@@ -2,16 +2,16 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserSplash from './user_splash';
-import receiveCurrentUser from '../../../actions/session_actions';
+import { receiveCurrentUser } from '../../../actions/session_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     currentUser: state.entities.users[state.session.id],
     likes: state.entities.likes
   };
 };
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = dispatch => {
   return {
     fetchUser: user => dispatch(receiveCurrentUser(user))
   };
