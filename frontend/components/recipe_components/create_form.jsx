@@ -21,7 +21,8 @@ export default class CreateForm extends React.Component {
         let directionList = document.getElementById('direction-list');
         if(this.state.ingredients.length > 0) {
             ingredientList.style.display = 'flex';
-        } else if (this.state.directions.length > 0) {
+        }
+        if (this.state.directions.length > 0) {
             directionList.style.display = 'flex'; 
         }  
     }
