@@ -587,9 +587,10 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // this.props.postRecipe({
-      //     name: 
-      // })
+      console.log(submitted);
+      e.preventDefault();
+      var recipe = Object.assign(this.state);
+      this.props.postRecipe(recipe);
     }
   }, {
     key: "update",
@@ -631,7 +632,7 @@ function (_React$Component) {
     value: function render() {
       this.checkState();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "create-container"
+        className: "create-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -725,10 +726,11 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         "for": "checkbox3",
         className: "create-label"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
-        className: "create-submit"
-      }, "Create Recipe"));
+        className: "create-submit",
+        value: "Create Recipe"
+      }));
     }
   }]);
 

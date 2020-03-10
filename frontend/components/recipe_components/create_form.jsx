@@ -28,10 +28,10 @@ export default class CreateForm extends React.Component {
     }
 
     handleSubmit(e) {
+        console.log(submitted);
         e.preventDefault();
-        // this.props.postRecipe({
-        //     name: 
-        // })
+        let recipe = Object.assign(this.state);
+        this.props.postRecipe(recipe);
     }
 
     update(field) {
@@ -66,7 +66,7 @@ export default class CreateForm extends React.Component {
     render() {
         this.checkState();
         return(
-            <form className="create-container">
+            <form className="create-form">
                 <div className="recipe-info">
                     <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name} onChange={this.update('name')} />
                     <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} onChange={this.update('region')}/>
@@ -121,7 +121,7 @@ export default class CreateForm extends React.Component {
                         <label for="checkbox3" className="create-label"></label>
                     </div>
                 </div>
-                <button type="submit" className="create-submit">Create Recipe</button>
+                <input type="submit" className="create-submit" value="Create Recipe" />
             </form>
         )
     }
