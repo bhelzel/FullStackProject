@@ -39,7 +39,17 @@ class Api::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:id, :name, :recipe_type, :region, :vegan, :vegetarian, :pescetarian, :ingredients, :directions)
+    params.require(:recipe).permit(
+      :id, 
+      :name, 
+      :recipe_type, 
+      :region, 
+      :vegan, 
+      :vegetarian, 
+      :pescetarian, 
+      ingredients: [],
+      directions: []
+    )
   end
 
 end
