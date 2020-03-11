@@ -14,6 +14,7 @@ export default class CreateForm extends React.Component {
             ingredients: [],
             directions: []
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     checkState() {
@@ -28,7 +29,7 @@ export default class CreateForm extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(submitted);
+        console.log(this.state);
         e.preventDefault();
         let recipe = Object.assign(this.state);
         this.props.postRecipe(recipe);
@@ -43,6 +44,7 @@ export default class CreateForm extends React.Component {
             };
         } else if (field === 'ingredients') {
             return e => { 
+                e.preventDefault();
                 let ingredient = document.getElementById('ingredient-input');
                 let ingredients = this.state.ingredients;
                 ingredients.push(ingredient.value);
@@ -51,6 +53,7 @@ export default class CreateForm extends React.Component {
             };
         } else if (field === 'directions') { 
             return e => {
+                e.preventDefault();
                 let direction = document.getElementById('direction-input');
                 let directions = this.state.directions;
                 directions.push(direction.value);
@@ -58,15 +61,17 @@ export default class CreateForm extends React.Component {
                 direction.value = '';
             };
         }
-        return e => this.setState({
-            [field]: e.target.value
-        });
+        return e => {
+            e.preventDefault();
+            this.setState({ [field]: e.target.value });
+        };
+       
     }
 
     render() {
         this.checkState();
         return(
-            <form className="create-form">
+            <form className="create-form" onSubmit={this.handleSubmit}>
                 <div className="recipe-info">
                     <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name} onChange={this.update('name')} />
                     <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} onChange={this.update('region')}/>

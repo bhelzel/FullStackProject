@@ -536,9 +536,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -567,6 +567,7 @@ function (_React$Component) {
       ingredients: [],
       directions: []
     };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -587,7 +588,7 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      console.log(submitted);
+      console.log(this.state);
       e.preventDefault();
       var recipe = Object.assign(this.state);
       this.props.postRecipe(recipe);
@@ -603,6 +604,7 @@ function (_React$Component) {
         };
       } else if (field === 'ingredients') {
         return function (e) {
+          e.preventDefault();
           var ingredient = document.getElementById('ingredient-input');
           var ingredients = _this2.state.ingredients;
           ingredients.push(ingredient.value);
@@ -613,6 +615,7 @@ function (_React$Component) {
         };
       } else if (field === 'directions') {
         return function (e) {
+          e.preventDefault();
           var direction = document.getElementById('direction-input');
           var directions = _this2.state.directions;
           directions.push(direction.value);
@@ -624,7 +627,9 @@ function (_React$Component) {
       }
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.target.value));
+        e.preventDefault();
+
+        _this2.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
@@ -632,7 +637,8 @@ function (_React$Component) {
     value: function render() {
       this.checkState();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "create-form"
+        className: "create-form",
+        onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
