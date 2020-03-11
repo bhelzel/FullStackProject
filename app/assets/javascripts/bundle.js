@@ -600,7 +600,7 @@ function (_React$Component) {
 
       if (field === 'vegan' || field === 'vegetarian' || field === 'pescetarian') {
         return function (e) {
-          _this2.state.field === false ? _this2.setState(_defineProperty({}, field, true)) : _this2.setState(_defineProperty({}, field, false));
+          _this2.state[field] === false ? _this2.setState(_defineProperty({}, field, true)) : _this2.setState(_defineProperty({}, field, false));
         };
       } else if (field === 'ingredients') {
         return function (e) {
@@ -709,7 +709,8 @@ function (_React$Component) {
         onClick: this.update('vegan')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         "for": "checkbox1",
-        className: "create-label"
+        className: "create-label",
+        onClick: this.update('vegan')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "check-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -720,7 +721,8 @@ function (_React$Component) {
         onClick: this.update('vegetarian')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         "for": "checkbox2",
-        className: "create-label"
+        className: "create-label",
+        onClick: this.update('vegetarian')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "check-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -731,7 +733,8 @@ function (_React$Component) {
         onClick: this.update('pescetarian')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         "for": "checkbox3",
-        className: "create-label"
+        className: "create-label",
+        onClick: this.update('pescetarian')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         className: "create-submit",

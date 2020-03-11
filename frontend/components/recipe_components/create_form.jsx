@@ -38,7 +38,7 @@ export default class CreateForm extends React.Component {
     update(field) {
         if (field === 'vegan' || field === 'vegetarian' || field === 'pescetarian') {
             return e => {
-                this.state.field === false ?
+                this.state[field] === false ?
                 this.setState({ [field]: true }) :
                 this.setState({ [field]: false }); 
             };
@@ -113,17 +113,17 @@ export default class CreateForm extends React.Component {
                     <p>Vegetarian:</p>
                     <div className="check-container">
                         <input type="checkbox" id="checkbox1" className="checkboxes" value={this.state.vegan} onClick={this.update('vegan')} />     
-                        <label for="checkbox1" className="create-label"></label>
+                        <label for="checkbox1" className="create-label" onClick={this.update('vegan')}></label>
                     </div> 
                     <p>Vegan:</p>
                     <div className="check-container">
                         <input type="checkbox" id="checkbox2" className="checkboxes" value={this.state.vegatarian} onClick={this.update('vegetarian')} />
-                        <label for="checkbox2" className="create-label"></label>
+                        <label for="checkbox2" className="create-label" onClick={this.update('vegetarian')}></label>
                     </div>
                     <p>Pescetarian:</p>
                     <div className="check-container">
                         <input type="checkbox" id="checkbox3" className="checkboxes" value={this.state.pescetarian} onClick={this.update('pescetarian')} />
-                        <label for="checkbox3" className="create-label"></label>
+                        <label for="checkbox3" className="create-label" onClick={this.update('pescetarian')}></label>
                     </div>
                 </div>
                 <input type="submit" className="create-submit" value="Create Recipe" />

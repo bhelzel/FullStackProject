@@ -22,7 +22,8 @@ class Api::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(params[:name, :recipe_type, :region, :vegan, :vegetarian, :pescetarian, :ingredients, :directions])
+    @recipe = Recipe.new(recipe_params)
+    print @recipe
     if @recipe.save!
       render "api/recipes/show"
     else
@@ -39,7 +40,7 @@ class Api::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipes).permit(:id, :name, :recipe_type, :region, :vegan, :vegetarian, :pescetarian, :ingredients, :directions)
+    params.require(:recipe).permit(:id, :name, :recipe_type, :region, :vegan, :vegetarian, :pescetarian, :ingredients, :directions)
   end
 
 end
