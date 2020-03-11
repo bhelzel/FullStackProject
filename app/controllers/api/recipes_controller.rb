@@ -23,7 +23,6 @@ class Api::RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    print @recipe
     if @recipe.save!
       render "api/recipes/show"
     else

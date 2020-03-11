@@ -588,9 +588,11 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      console.log(this.state);
       e.preventDefault();
       var recipe = Object.assign(this.state);
+      Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
+      delete recipe['recipeType'];
+      console.log(recipe);
       this.props.postRecipe(recipe);
     }
   }, {

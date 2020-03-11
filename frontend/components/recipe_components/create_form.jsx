@@ -29,9 +29,11 @@ export default class CreateForm extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.state);
         e.preventDefault();
         let recipe = Object.assign(this.state);
+        Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
+        delete recipe['recipeType'];
+        console.log(recipe);
         this.props.postRecipe(recipe);
     }
 
