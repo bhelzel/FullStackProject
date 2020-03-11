@@ -12,7 +12,8 @@ export default class CreateForm extends React.Component {
             vegetarian: false,
             pescetarian: false,
             ingredients: [],
-            directions: []
+            directions: [],
+            photo: undefined
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -62,6 +63,11 @@ export default class CreateForm extends React.Component {
                 this.setState({ [field]: directions });
                 direction.value = '';
             };
+        } else if (field === 'file') {
+            return e => {
+                e.preventDefault();
+                this.setState({ [field]: e.target.value});
+            };
         }
         return e => {
             e.preventDefault();
@@ -75,8 +81,8 @@ export default class CreateForm extends React.Component {
         return(
             <form className="create-form" onSubmit={this.handleSubmit}>
                 <div>
-                    <div>
-                        
+                    <div className="first-input-div">
+                        <input type="file" className="photo-input" onChange={this.update('file')}/> 
                     </div>
                     <div className="recipe-info">
                         <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name} onChange={this.update('name')} />

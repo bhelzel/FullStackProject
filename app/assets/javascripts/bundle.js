@@ -565,7 +565,8 @@ function (_React$Component) {
       vegetarian: false,
       pescetarian: false,
       ingredients: [],
-      directions: []
+      directions: [],
+      photo: undefined
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -626,6 +627,12 @@ function (_React$Component) {
 
           direction.value = '';
         };
+      } else if (field === 'file') {
+        return function (e) {
+          e.preventDefault();
+
+          _this2.setState(_defineProperty({}, field, e.target.value));
+        };
       }
 
       return function (e) {
@@ -641,7 +648,13 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create-form",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "first-input-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        className: "photo-input",
+        onChange: this.update('file')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "info-input",
