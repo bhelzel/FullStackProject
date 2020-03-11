@@ -74,10 +74,15 @@ export default class CreateForm extends React.Component {
         this.checkState();
         return(
             <form className="create-form" onSubmit={this.handleSubmit}>
-                <div className="recipe-info">
-                    <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name} onChange={this.update('name')} />
-                    <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} onChange={this.update('region')}/>
-                    <input className="info-input" type="text" placeholder="Recipe Type" value={this.state.recipeType} onChange={this.update('recipeType')} />
+                <div>
+                    <div>
+                        
+                    </div>
+                    <div className="recipe-info">
+                        <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name} onChange={this.update('name')} />
+                        <input className="info-input" type="text" placeholder="Recipe Region" value={this.state.region} onChange={this.update('region')}/>
+                        <input className="info-input" type="text" placeholder="Recipe Type" value={this.state.recipeType} onChange={this.update('recipeType')} />
+                    </div>
                 </div>
                 <div className="ingredient-div"> 
                     <div className="ingredients">
