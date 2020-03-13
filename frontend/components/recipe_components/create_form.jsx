@@ -81,7 +81,7 @@ export default class CreateForm extends React.Component {
         this.checkState();
         return(
             <form className="create-form" onSubmit={this.handleSubmit}>
-                <div>
+                <div className="top-div">
                     <div className="first-input-div">
                         <input type="file" className="photo-input" onChange={this.update('file')}/> 
                     </div>
