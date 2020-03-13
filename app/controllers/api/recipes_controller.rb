@@ -46,9 +46,10 @@ class Api::RecipesController < ApplicationController
       :region, 
       :vegan, 
       :vegetarian, 
-      :pescetarian, 
+      :pescetarian,
+      :photo, 
       ingredients: [],
-      directions: []
+      directions: [],
     )
   end
 

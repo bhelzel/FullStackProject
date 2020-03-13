@@ -11,9 +11,9 @@ export default class CreateForm extends React.Component {
             vegan: false,
             vegetarian: false,
             pescetarian: false,
+            photo: null,
             ingredients: [],
-            directions: [],
-            photo: undefined
+            directions: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -32,12 +32,11 @@ export default class CreateForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let recipe = Object.assign(this.state);
-        let photo = Object.assign(this.state.photo);
         Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
         delete recipe.recipeType;
         delete recipe.photo;
         console.log(recipe);
-        this.props.postRecipe(recipe, photo);
+        this.props.postRecipe(recipe);
     }
 
     update(field) {
@@ -68,7 +67,7 @@ export default class CreateForm extends React.Component {
         } else if (field === 'file') {
             return e => {
                 e.preventDefault();
-                this.setState({ [field]: e.target.value});
+                this.setState({ [field]: e.target.files[0]});
             };
         }
         return e => {

@@ -174,7 +174,7 @@ var fetchRecipe = function fetchRecipe(recipeId) {
     });
   };
 };
-var postRecipe = function postRecipe(recipe, photo) {
+var postRecipe = function postRecipe(recipe) {
   return function (dispatch) {
     return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["postRecipe"](recipe).then(function (recipe) {
       return dispatch(receiveRecipe(recipe));
@@ -564,9 +564,9 @@ function (_React$Component) {
       vegan: false,
       vegetarian: false,
       pescetarian: false,
+      photo: null,
       ingredients: [],
-      directions: [],
-      photo: undefined
+      directions: []
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -591,12 +591,11 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var recipe = Object.assign(this.state);
-      var photo = Object.assign(this.state.photo);
       Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
       delete recipe.recipeType;
       delete recipe.photo;
       console.log(recipe);
-      this.props.postRecipe(recipe, photo);
+      this.props.postRecipe(recipe);
     }
   }, {
     key: "update",
@@ -633,7 +632,7 @@ function (_React$Component) {
         return function (e) {
           e.preventDefault();
 
-          _this2.setState(_defineProperty({}, field, e.target.value));
+          _this2.setState(_defineProperty({}, field, e.target.files[0]));
         };
       }
 
@@ -2118,7 +2117,9 @@ var postRecipe = function postRecipe(recipe) {
     method: 'POST',
     data: {
       recipe: recipe
-    }
+    },
+    contentType: false,
+    processData: false
   });
 };
 var editRecipe = function editRecipe(recipeId) {
