@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class CreateForm extends React.Component {
     
@@ -32,10 +33,12 @@ export default class CreateForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let recipe = Object.assign(this.state);
+        let photo = Object.assign(this.state.photo);
         Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
-        delete recipe[ 'recipeType'];
+        delete recipe.recipeType;
+        delete recipe.photo;
         console.log(recipe);
-        this.props.postRecipe(recipe);
+        this.props.postRecipe(recipe, photo);
     }
 
     update(field) {

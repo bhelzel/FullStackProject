@@ -31,7 +31,7 @@ export const fetchRecipe = recipeId => dispatch => (
   ))
 );
 
-export const postRecipe = recipe => dispatch => {
+export const postRecipe = (recipe, photo) => dispatch => {
   return RecipeAPIUtil.postRecipe(recipe).then(recipe => (
     dispatch(receiveRecipe(recipe))
   ));
