@@ -23,9 +23,9 @@
   justify-content: flex-end;
   align-items: center;
   align-self: center;
-  height: 350px;
-  width: 250px;
-  border: 1px solid #4B9B96;
+  height: 380px;
+  width: 290px;
+  border: 5px solid #4B9B96;
 }
 
 .recipe-photo {
