@@ -13,8 +13,8 @@ import SideBarContainer from './side_bar/side_bar_container';
 import UserSplash from './splash_pages/user_splash/user_splash_container';
 import Modal from './modals/modal';
 import IndexSplash from './splash_pages/index_splash/index_splash_container';
-import RecipeShowContainer from './recipe_components/recipe_show_container';
-import CreateRecipeContainer from './recipe_components/create_form_container';
+import RecipeShowContainer from './recipe_components/recipe_show/recipe_show_container';
+import CreateRecipeContainer from './recipe_components/create_form/create_form_container';
 
 const App = () => (
   <div className="wrapper">

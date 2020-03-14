@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import RecipeShow from './recipe_show';
-import { fetchRecipe } from '../../actions/recipe_actions';
+import { fetchRecipe, editRecipe } from '../../actions/recipe_actions';
 import { receiveCurrentUser } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchRecipe: recipeId => dispatch(fetchRecipe(recipeId))
+  fetchRecipe: recipeId => dispatch(fetchRecipe(recipeId)),
+  editRecipe: recipe => dispatch(editRecipe(recipe))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeShow);

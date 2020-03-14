@@ -37,9 +37,9 @@ export const postRecipe = recipe => dispatch => {
   ));
 };
 
-export const editRecipe = recipeId => dispatch => (
-  RecipeAPIUtil.editRecipe(recipeId).then(recipeId => (
-    dispatch(receiveRecipe(recipeId))
+export const editRecipe = recipe => dispatch => (
+  RecipeAPIUtil.editRecipe(recipe).then(recipe => (
+    dispatch(receiveRecipe(recipe))
   ))
 );
 

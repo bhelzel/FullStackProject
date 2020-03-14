@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipesIndex from '../../recipe_components/recipes_index_container';
+import RecipesIndex from '../../recipe_components/recipe_index/recipes_index_container';
 
 class IndexSplash extends React.Component {
 

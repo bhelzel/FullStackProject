@@ -14,7 +14,7 @@ class Api::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    if @recipe.save!
+    if @recipe.update(recipe_params)
       render "api/recipes/show"
     else
       raise "error"
