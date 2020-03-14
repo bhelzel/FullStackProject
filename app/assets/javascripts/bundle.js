@@ -787,7 +787,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _create_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./create_form */ "./frontend/components/recipe_components/create_form/create_form.jsx");
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../../actions/recipe_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
 
 
 
@@ -796,7 +796,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     postRecipe: function postRecipe(recipe) {
-      return dispatch(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../actions/recipe_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(recipe));
+      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__["postRecipe"])(recipe));
     }
   };
 };
@@ -818,6 +818,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -862,11 +864,182 @@ function (_React$Component) {
   }
 
   _createClass(EditForm, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var recipe = Object.assign(this.state);
+      Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
+      delete recipe.recipeType;
+      delete recipe.photo;
+      console.log(recipe);
+      this.props.postRecipe(recipe);
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      if (field === 'vegan' || field === 'vegetarian' || field === 'pescetarian') {
+        return function (e) {
+          _this2.state[field] === false ? _this2.setState(_defineProperty({}, field, true)) : _this2.setState(_defineProperty({}, field, false));
+        };
+      } else if (field === 'ingredients') {
+        return function (e) {
+          e.preventDefault();
+          var ingredient = document.getElementById('ingredient-input');
+          var ingredients = _this2.state.ingredients;
+          ingredients.push(ingredient.value);
+
+          _this2.setState(_defineProperty({}, field, ingredients));
+
+          ingredient.value = '';
+        };
+      } else if (field === 'directions') {
+        return function (e) {
+          e.preventDefault();
+          var direction = document.getElementById('direction-input');
+          var directions = _this2.state.directions;
+          directions.push(direction.value);
+
+          _this2.setState(_defineProperty({}, field, directions));
+
+          direction.value = '';
+        };
+      } else if (field === 'file') {
+        return function (e) {
+          e.preventDefault();
+
+          _this2.setState(_defineProperty({}, field, e.target.files[0]));
+        };
+      }
+
+      return function (e) {
+        e.preventDefault();
+
+        _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "edit-form"
-      });
+        className: "create-form",
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "top-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "first-input-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        className: "photo-input",
+        onChange: this.update('file')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "recipe-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "info-input",
+        type: "text",
+        placeholder: this.state.name,
+        value: this.state.name,
+        onChange: this.update('name')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "info-input",
+        type: "text",
+        placeholder: this.state.recipeType,
+        value: this.state.region,
+        onChange: this.update('region')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "info-input",
+        type: "text",
+        placeholder: this.state.region,
+        value: this.state.recipeType,
+        onChange: this.update('recipeType')
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ingredient-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ingredients"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "list",
+        id: "ingredient-list"
+      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "list-input",
+          placeholder: ingredient
+        }));
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        type: "text",
+        className: "textarea-input",
+        id: "ingredient-input",
+        placeholder: "Ingredient"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "add-ingredient",
+        className: "add-btn",
+        onClick: this.update('ingredients')
+      }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "directions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+        className: "list",
+        id: "direction-list"
+      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "list-input",
+          placeholder: direction
+        }));
+      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        type: "text",
+        id: "direction-input",
+        className: "textarea-input",
+        placeholder: "Direction"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "add-direction",
+        className: "add-btn",
+        onClick: this.update('directions')
+      }, "Add Direction")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "diet-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        id: "checkbox1",
+        className: "checkboxes",
+        value: this.state.vegan,
+        onClick: this.update('vegan')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "checkbox1",
+        className: "create-label",
+        onClick: this.update('vegan')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        id: "checkbox2",
+        className: "checkboxes",
+        value: this.state.vegatarian,
+        onClick: this.update('vegetarian')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "checkbox2",
+        className: "create-label",
+        onClick: this.update('vegetarian')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "check-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        id: "checkbox3",
+        className: "checkboxes",
+        value: this.state.pescetarian,
+        onClick: this.update('pescetarian')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "checkbox3",
+        className: "create-label",
+        onClick: this.update('pescetarian')
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        className: "create-submit",
+        value: "Create Recipe"
+      }));
     }
   }]);
 
@@ -1146,8 +1319,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _recipe_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recipe_show */ "./frontend/components/recipe_components/recipe_show/recipe_show.jsx");
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../../actions/recipe_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '../../actions/session_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/session_actions */ "./frontend/actions/session_actions.js");
 
 
 
@@ -1163,10 +1336,10 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchRecipe: function fetchRecipe(recipeId) {
-      return dispatch(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../actions/recipe_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(recipeId));
+      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__["fetchRecipe"])(recipeId));
     },
     editRecipe: function editRecipe(recipe) {
-      return dispatch(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../actions/recipe_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(recipe));
+      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__["editRecipe"])(recipe));
     }
   };
 };
