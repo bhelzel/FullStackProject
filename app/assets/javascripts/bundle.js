@@ -308,6 +308,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splash_pages_index_splash_index_splash_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./splash_pages/index_splash/index_splash_container */ "./frontend/components/splash_pages/index_splash/index_splash_container.jsx");
 /* harmony import */ var _recipe_components_recipe_show_recipe_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./recipe_components/recipe_show/recipe_show_container */ "./frontend/components/recipe_components/recipe_show/recipe_show_container.jsx");
 /* harmony import */ var _recipe_components_create_form_create_form_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./recipe_components/create_form/create_form_container */ "./frontend/components/recipe_components/create_form/create_form_container.jsx");
+/* harmony import */ var _recipe_components_edit_form_edit_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./recipe_components/edit_form/edit_form */ "./frontend/components/recipe_components/edit_form/edit_form.jsx");
+
 
 
 
@@ -338,6 +340,10 @@ var App = function App() {
     exact: true,
     path: "/createrecipe",
     component: _recipe_components_create_form_create_form_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/recipes/:recipeId/edit",
+    component: _recipe_components_edit_form_edit_form__WEBPACK_IMPORTED_MODULE_10__["default"]
   })));
 };
 
@@ -799,6 +805,78 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/recipe_components/edit_form/edit_form.jsx":
+/*!***********************************************************************!*\
+  !*** ./frontend/components/recipe_components/edit_form/edit_form.jsx ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EditForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var EditForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(EditForm, _React$Component);
+
+  function EditForm(props) {
+    var _this;
+
+    _classCallCheck(this, EditForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditForm).call(this, props));
+    _this.state = {
+      name: _this.props.recipe.name,
+      recipeType: _this.props.recipe.recipeType,
+      region: _this.props.recipe.region,
+      vegan: _this.props.recipe.vegan,
+      vegetarian: _this.props.recipe.vegetarian,
+      pescetarian: _this.props.recipe.pescetarian,
+      ingredients: _this.props.recipe.ingredients,
+      directions: _this.props.recipe.directions
+    };
+    return _this;
+  }
+
+  _createClass(EditForm, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "edit-form"
+      });
+    }
+  }]);
+
+  return EditForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+
+/***/ }),
+
 /***/ "./frontend/components/recipe_components/recipe_index/recipe_index_item.jsx":
 /*!**********************************************************************************!*\
   !*** ./frontend/components/recipe_components/recipe_index/recipe_index_item.jsx ***!
@@ -971,6 +1049,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -988,6 +1067,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1017,6 +1097,11 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "edit-link-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        to: "/recipe/".concat(recipeId, "/edit"),
+        recipe: this.props.recipe
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.recipe.photoUrl,

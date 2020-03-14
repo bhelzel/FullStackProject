@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'react-router-dom';
 
 class RecipeShow extends React.Component {
 
@@ -16,6 +17,9 @@ class RecipeShow extends React.Component {
     }
     return (
       <div className="recipe-show">
+        <div className="edit-link-div">
+          <Link to={`/recipe/${recipeId}/edit`} recipe={this.props.recipe} />
+        </div>
         <div className="recipe">
           <h2>{this.props.recipe.name}</h2>
           <img src={this.props.recipe.photoUrl} className="recipe-photo"/>
