@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -21,6 +22,14 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new CopyPlugin([
+      { 
+        from: '/Users/hwatsonbenjamin/Desktop/FullStackProject/Yummaly/public/favicon.ico',
+        to: this.output
+      }, 
+    ])
+  ],
   devtool: 'source-map',
   resolve: {
     extensions: [".js", ".jsx", "*"]

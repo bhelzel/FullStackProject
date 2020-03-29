@@ -18,7 +18,7 @@ class RecipeShow extends React.Component {
     return (
       <div className="recipe-show">
         <div className="edit-link-div">
-          <Link to={`/recipe/${recipeId}/edit`} recipe={this.props.recipe} />
+          <Link to={`/recipe/${this.props.recipe.id}/edit`} recipe={this.props.recipe} />
         </div>
         <div className="recipe">
           <h2>{this.props.recipe.name}</h2>

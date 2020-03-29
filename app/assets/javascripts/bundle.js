@@ -1272,7 +1272,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-link-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        to: "/recipe/".concat(recipeId, "/edit"),
+        to: "/recipe/".concat(this.props.recipe.id, "/edit"),
         recipe: this.props.recipe
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe"
