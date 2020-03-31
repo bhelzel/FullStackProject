@@ -33,10 +33,7 @@ export default class CreateForm extends React.Component {
         e.preventDefault();
         let recipe = Object.assign(this.state);
         Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
-        let photo = recipe.photo;
         delete recipe.recipeType;
-        delete recipe.photo;
-        recipe.
         this.props.postRecipe(recipe);
     }
 
