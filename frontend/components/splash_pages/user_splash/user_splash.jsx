@@ -8,7 +8,6 @@ class UserSplash extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.currentUser);
-    console.log(this.props.currentUser.likes);
   }
   
   render() {

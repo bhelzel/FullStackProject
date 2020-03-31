@@ -15,7 +15,7 @@ import Modal from './modals/modal';
 import IndexSplash from './splash_pages/index_splash/index_splash_container';
 import RecipeShowContainer from './recipe_components/recipe_show/recipe_show_container';
 import CreateRecipeContainer from './recipe_components/create_form/create_form_container';
-import EditRecipeForm from './recipe_components/edit_form/edit_form';
+import EditRecipeContainer from './recipe_components/edit_form/edit_form_container';
 
 const App = () => (
   <div className="wrapper">
@@ -26,7 +26,7 @@ const App = () => (
       <Route exact path="/" component={IndexSplash} />
       <Route exact path="/recipes/:recipeId" component={RecipeShowContainer} />
       <Route exact path="/createrecipe" component={CreateRecipeContainer} />
-      <Route exact path="/recipes/:recipeId/edit" component={EditRecipeForm} />
+      <Route exact path="/recipes/:recipeId/edit" component={EditRecipeContainer} />
     </Switch>
   </div>
 );

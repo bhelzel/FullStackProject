@@ -308,7 +308,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splash_pages_index_splash_index_splash_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./splash_pages/index_splash/index_splash_container */ "./frontend/components/splash_pages/index_splash/index_splash_container.jsx");
 /* harmony import */ var _recipe_components_recipe_show_recipe_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./recipe_components/recipe_show/recipe_show_container */ "./frontend/components/recipe_components/recipe_show/recipe_show_container.jsx");
 /* harmony import */ var _recipe_components_create_form_create_form_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./recipe_components/create_form/create_form_container */ "./frontend/components/recipe_components/create_form/create_form_container.jsx");
-/* harmony import */ var _recipe_components_edit_form_edit_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./recipe_components/edit_form/edit_form */ "./frontend/components/recipe_components/edit_form/edit_form.jsx");
+/* harmony import */ var _recipe_components_edit_form_edit_form_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./recipe_components/edit_form/edit_form_container */ "./frontend/components/recipe_components/edit_form/edit_form_container.jsx");
 
 
 
@@ -343,7 +343,7 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/recipes/:recipeId/edit",
-    component: _recipe_components_edit_form_edit_form__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _recipe_components_edit_form_edit_form_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   })));
 };
 
@@ -598,10 +598,10 @@ function (_React$Component) {
       e.preventDefault();
       var recipe = Object.assign(this.state);
       Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
+      var photo = recipe.photo;
       delete recipe.recipeType;
       delete recipe.photo;
-      console.log(recipe);
-      this.props.postRecipe(recipe);
+      recipe["this"].props.postRecipe(recipe);
     }
   }, {
     key: "update",
@@ -634,7 +634,7 @@ function (_React$Component) {
 
           direction.value = '';
         };
-      } else if (field === 'file') {
+      } else if (field === 'photo') {
         return function (e) {
           e.preventDefault();
 
@@ -662,7 +662,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         className: "photo-input",
-        onChange: this.update('file')
+        onChange: this.update('photo')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -814,7 +814,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EditForm; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -864,6 +863,11 @@ function (_React$Component) {
   }
 
   _createClass(EditForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchRecipe(this.props.match.params.recipeId);
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -872,7 +876,7 @@ function (_React$Component) {
       delete recipe.recipeType;
       delete recipe.photo;
       console.log(recipe);
-      this.props.postRecipe(recipe);
+      this.props.editRecipe(recipe);
     }
   }, {
     key: "update",
@@ -1038,7 +1042,7 @@ function (_React$Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         className: "create-submit",
-        value: "Create Recipe"
+        value: "Edit Recipe"
       }));
     }
   }]);
@@ -1046,7 +1050,45 @@ function (_React$Component) {
   return EditForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
+/* harmony default export */ __webpack_exports__["default"] = (EditForm);
 
+/***/ }),
+
+/***/ "./frontend/components/recipe_components/edit_form/edit_form_container.jsx":
+/*!*********************************************************************************!*\
+  !*** ./frontend/components/recipe_components/edit_form/edit_form_container.jsx ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../util/recipe_api_util */ "./frontend/util/recipe_api_util.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _edit_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit_form */ "./frontend/components/recipe_components/edit_form/edit_form.jsx");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    recipe: state.entities.recipes[ownProps.match.params.recipeId]
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchRecipe: function fetchRecipe(recipeId) {
+      return dispatch(Object(_util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchRecipe"])(recipeId));
+    },
+    editRecipe: function editRecipe(recipe) {
+      return dispatch(Object(_util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["editRecipe"])(recipe));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(_edit_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1139,7 +1181,6 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllRecipes();
-      console.log(this.props.recipes);
     }
   }, {
     key: "render",
@@ -1267,14 +1308,12 @@ function (_React$Component) {
         return null;
       }
 
+      console.log(this.props.recipe.id);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit-link-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        to: "/recipe/".concat(this.props.recipe.id, "/edit"),
-        recipe: this.props.recipe
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        to: "/recipes/".concat(this.props.recipe.id, "/edit")
+      }, "Edit Recipe")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.recipe.photoUrl,
@@ -1887,7 +1926,6 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchUser(this.props.currentUser);
-      console.log(this.props.currentUser.likes);
     }
   }, {
     key: "render",

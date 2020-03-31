@@ -1,5 +1,5 @@
 import React from 'react';
-export default class EditForm extends React.Component {
+class EditForm extends React.Component {
     
     constructor(props) {
         super(props);
@@ -15,6 +15,10 @@ export default class EditForm extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.props.fetchRecipe(this.props.match.params.recipeId);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         let recipe = Object.assign(this.state);
@@ -22,7 +26,7 @@ export default class EditForm extends React.Component {
         delete recipe.recipeType;
         delete recipe.photo;
         console.log(recipe);
-        this.props.postRecipe(recipe);
+        this.props.editRecipe(recipe);
     }
 
     update(field) {
@@ -125,8 +129,10 @@ export default class EditForm extends React.Component {
                         <label for="checkbox3" className="create-label" onClick={this.update('pescetarian')}></label>
                     </div>
                 </div>
-                <input type="submit" className="create-submit" value="Create Recipe" />
+                <input type="submit" className="create-submit" value="Edit Recipe" />
             </form>
         ) 
     }
 }
+
+export default EditForm;

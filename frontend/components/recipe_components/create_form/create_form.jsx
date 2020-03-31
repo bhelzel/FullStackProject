@@ -33,9 +33,10 @@ export default class CreateForm extends React.Component {
         e.preventDefault();
         let recipe = Object.assign(this.state);
         Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
+        let photo = recipe.photo;
         delete recipe.recipeType;
         delete recipe.photo;
-        console.log(recipe);
+        recipe.
         this.props.postRecipe(recipe);
     }
 
@@ -64,7 +65,7 @@ export default class CreateForm extends React.Component {
                 this.setState({ [field]: directions });
                 direction.value = '';
             };
-        } else if (field === 'file') {
+        } else if (field === 'photo') {
             return e => {
                 e.preventDefault();
                 this.setState({ [field]: e.target.files[0]});
@@ -83,7 +84,7 @@ export default class CreateForm extends React.Component {
             <form className="create-form" onSubmit={this.handleSubmit}>
                 <div className="top-div">
                     <div className="first-input-div">
-                        <input type="file" className="photo-input" onChange={this.update('file')}/> 
+                        <input type="file" className="photo-input" onChange={this.update('photo')}/> 
                     </div>
                     <div className="recipe-info">
                         <input className="info-input" type="text" placeholder="Recipe Name" value={this.state.name} onChange={this.update('name')} />

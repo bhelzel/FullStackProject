@@ -15,11 +15,10 @@ class RecipeShow extends React.Component {
     if(this.props.recipe === undefined || this.props.recipe.ingredients === undefined) {
       return null;
     }
+    console.log(this.props.recipe.id);
     return (
       <div className="recipe-show">
-        <div className="edit-link-div">
-          <Link to={`/recipe/${this.props.recipe.id}/edit`} recipe={this.props.recipe} />
-        </div>
+        <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit Recipe</Link></button>
         <div className="recipe">
           <h2>{this.props.recipe.name}</h2>
           <img src={this.props.recipe.photoUrl} className="recipe-photo"/>
