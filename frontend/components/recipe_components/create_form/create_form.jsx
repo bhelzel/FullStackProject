@@ -34,6 +34,7 @@ export default class CreateForm extends React.Component {
         let recipe = Object.assign(this.state);
         Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
         delete recipe.recipeType;
+        console.log(recipe);
         this.props.postRecipe(recipe);
     }
 
@@ -94,8 +95,8 @@ export default class CreateForm extends React.Component {
                         <ul className="list" id="ingredient-list">
                             {
                                 this.state.ingredients.length > 0 ?
-                                this.state.ingredients.map(ingredient => {
-                                    return (<li>{ingredient}</li>)
+                                this.state.ingredients.map((ingredient, i) => {
+                                    return (<li key={i}>{ingredient}</li>)
                                 }) :
                                 ''
                             }
@@ -109,8 +110,8 @@ export default class CreateForm extends React.Component {
                         <ol className="list" id="direction-list">
                             {
                                 this.state.directions.length > 0 ?
-                                this.state.directions.map(direction => {
-                                    return (<li>{direction}</li>)
+                                this.state.directions.map((direction, i) => {
+                                    return (<li key={i}>{direction}</li>)
                                 }) :
                                 ''
                             }

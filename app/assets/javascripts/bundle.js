@@ -598,10 +598,9 @@ function (_React$Component) {
       e.preventDefault();
       var recipe = Object.assign(this.state);
       Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
-      var photo = recipe.photo;
       delete recipe.recipeType;
-      delete recipe.photo;
-      recipe["this"].props.postRecipe(recipe);
+      console.log(recipe);
+      this.props.postRecipe(recipe);
     }
   }, {
     key: "update",
@@ -690,8 +689,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "list",
         id: "ingredient-list"
-      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredient);
+      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: i
+        }, ingredient);
       }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "add-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
@@ -708,8 +709,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
         className: "list",
         id: "direction-list"
-      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, direction);
+      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: i
+        }, direction);
       }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "add-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
