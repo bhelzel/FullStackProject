@@ -599,7 +599,6 @@ function (_React$Component) {
       var recipe = Object.assign(this.state);
       Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
       delete recipe.recipeType;
-      console.log(recipe);
       this.props.postRecipe(recipe);
     }
   }, {
@@ -2416,12 +2415,11 @@ var fetchRecipe = function fetchRecipe(recipeId) {
   });
 };
 var postRecipe = function postRecipe(recipe) {
+  console.log(recipe);
   return $.ajax({
     url: '/api/recipes',
     method: 'POST',
-    data: {
-      recipe: recipe
-    },
+    data: recipe,
     contentType: false,
     processData: false
   });
