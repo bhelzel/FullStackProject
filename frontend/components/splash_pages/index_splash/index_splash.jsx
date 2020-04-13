@@ -11,6 +11,8 @@ class IndexSplash extends React.Component {
     return (
       <div className="show" id="index-show">
         <div className="splash-header">
+          <div className="pasta-img-container"></div>
+          <div className="pizza-img-container"></div>
           <div className="index-search-container">
           </div>
         </div>

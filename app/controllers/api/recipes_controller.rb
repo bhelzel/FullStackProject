@@ -24,21 +24,19 @@ class Api::RecipesController < ApplicationController
   end
 
   def create
-    
+
     s3 = Aws::S3::Resource.new(region: 'us-west-1')
 
     bucket = 'yummaly-aa-seeds'
     file = recipe_params[:photo]
 
-    @recipe = Recipe.new(recipe_params)
-    @recipe.photo.Attach(file)
-
-    p @recipe
-
     file_name = File.basename(file)
     obj = s3.bucket(bucket).object(file_name)
 
     obj.upload_file(file)
+
+    @recipe = Recipe.new(recipe_params)
+    @recipe.photo.Attach(file)
     
     if @recipe.save!
       render "api/recipes/show"
