@@ -1128,7 +1128,11 @@ var RecipeIndexItem = function RecipeIndexItem(_ref) {
     className: "show-link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "recipe-name"
-  }, recipe.name))));
+  }, recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return likeRecipe(recipe.id);
+    }
+  })));
 };
 
 /***/ }),
@@ -1957,7 +1961,7 @@ function (_React$Component) {
         className: "user-yums"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Favorite Recipes:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Go to your feed and click the \"Like\" button to save recipes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "liked-recipes"
-      })));
+      }, console.log(this.props.likes))));
     }
   }]);
 
@@ -2127,8 +2131,11 @@ var likesReducer = function likesReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, action.payload.likes);
-    // case RECEIVE_ALL_RECIPES:
-    //   return Object.assign({}, state, action.payload.likes);
+
+    case _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_RECIPE"]:
+      console.log(state);
+      console.log(action);
+      return Object.assign({}, state, action.payload.likes);
 
     default:
       return state;

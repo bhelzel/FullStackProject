@@ -14,6 +14,7 @@ export const RecipeIndexItem = ({ recipe, currentUser, likeRecipe, unLikeRecipe 
         <br/>
         <div className="recipe-title-button">
             <Link to={`/recipes/${recipe.id}`} className="show-link" ><h5 className="recipe-name">{recipe.name}</h5></Link>
+            <button onClick={() => likeRecipe(recipe.id)}></button>
         </div>
       </div>
     )

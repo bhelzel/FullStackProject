@@ -30,6 +30,7 @@ class UserSplash extends React.Component {
           <h2>Favorite Recipes:</h2>
           <p>Go to your feed and click the "Like" button to save recipes</p>
           <div className="liked-recipes">
+            { console.log(this.props.likes) }
           </div>
         </div>
       </div>
