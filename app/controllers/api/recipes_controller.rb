@@ -25,18 +25,20 @@ class Api::RecipesController < ApplicationController
 
   def create
 
-    s3 = Aws::S3::Resource.new(region: 'us-west-1')
+    debugger
 
-    bucket = 'yummaly-aa-seeds'
-    file = recipe_params[:photo]
+    # s3 = Aws::S3::Resource.new(region: 'us-west-1')
 
-    file_name = File.basename(file)
-    obj = s3.bucket(bucket).object(file_name)
+    # bucket = 'yummaly-aa-seeds'
+    # file = params[:photo]
 
-    obj.upload_file(file)
+    # file_name = File.basename(file)
+    # obj = s3.bucket(bucket).object(file_name)
 
-    @recipe = Recipe.new(recipe_params)
-    @recipe.photo.Attach(file)
+    # obj.upload_file(file)
+
+    @recipe = Recipe.new(params.except(:format, :controller, :action))
+    # @recipe.photo.Attach(file)
     
     if @recipe.save!
       render "api/recipes/show"
@@ -54,7 +56,6 @@ class Api::RecipesController < ApplicationController
   private
 
   def recipe_params
-    p params.inspect
     params.require(:recipe).permit(
       :id, 
       :name, 

@@ -13,7 +13,6 @@ export const fetchRecipe = recipeId => (
 );
 
 export const postRecipe = recipe => {
-  console.log(recipe);
   return $.ajax({
     url: '/api/recipes',
     method: 'POST',
