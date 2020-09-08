@@ -33,22 +33,24 @@ export default class CreateForm extends React.Component {
         e.preventDefault();
         console.log(this.state.photo);
         // let recipe = {};
-        let recipe_params = new FormData();
-        recipe_params.append('name', this.state.name);
-        recipe_params.append('recipe_type', this.state.recipeType);
-        recipe_params.append('region', this.state.region);
-        recipe_params.append('vegan', this.state.vegan);
-        recipe_params.append('vegetarian', this.state.vegetarian);
-        recipe_params.append('pescetarian', this.state.pescetarian);
-        recipe_params.append('photo', this.state.photo);
-        recipe_params.append('ingredients', this.state.ingredients);
-        recipe_params.append('directions', this.state.directions);
+        let recipeParams = new FormData();
+        recipeParams.append('name', this.state.name);
+        recipeParams.append('recipe_type', this.state.recipeType);
+        recipeParams.append('region', this.state.region);
+        recipeParams.append('vegan', this.state.vegan);
+        recipeParams.append('vegetarian', this.state.vegetarian);
+        recipeParams.append('pescetarian', this.state.pescetarian);
+        recipeParams.append('photo', this.state.photo);
+        recipeParams.append('ingredients', this.state.ingredients);
+        recipeParams.append('directions', this.state.directions);
         // let recipe = Object.assign(this.state);
         // Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
         // delete recipe.recipeType;
-        // let recipe = {'recipe': recipe_params};
+        // let recipe = {'recipe': recipeParams};
         // console.log(recipe);
-        this.props.postRecipe(recipe_params);
+        // let recipe = {'recipe': recipeParams};
+        // console.log(recipe);
+        this.props.postRecipe(recipeParams);
     }
 
     update(field) {

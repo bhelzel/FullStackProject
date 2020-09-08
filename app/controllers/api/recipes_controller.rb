@@ -3,6 +3,7 @@ require 'aws-sdk-s3'
 class Api::RecipesController < ApplicationController
 
   attr_reader :recipes, :recipe
+  attr_writer :recipe
 
   def index
     @recipes = Recipe.all()
@@ -27,18 +28,20 @@ class Api::RecipesController < ApplicationController
 
     debugger
 
-    # s3 = Aws::S3::Resource.new(region: 'us-west-1')
-
-    # bucket = 'yummaly-aa-seeds'
-    # file = params[:photo]
-
-    # file_name = File.basename(file)
-    # obj = s3.bucket(bucket).object(file_name)
-
-    # obj.upload_file(file)
-
-    @recipe = Recipe.new(params.except(:format, :controller, :action))
-    # @recipe.photo.Attach(file)
+    @recipe = Recipe.new(params.require(:recipe).permit(
+        :id,
+        :name,
+        :recipe_type,
+        :region, 
+        :vegan, 
+        :vegetarian, 
+        :pescetarian,
+        :photo, 
+        ingredients: [],
+        directions: [],
+      )
+    )
+    # .except(:format, :controller, :action)
     
     if @recipe.save!
       render "api/recipes/show"
@@ -53,21 +56,21 @@ class Api::RecipesController < ApplicationController
     render "api/recipes/index"
   end
 
-  private
+  # private
 
-  def recipe_params
-    params.require(:recipe).permit(
-      :id, 
-      :name, 
-      :recipe_type, 
-      :region, 
-      :vegan, 
-      :vegetarian, 
-      :pescetarian,
-      :photo, 
-      ingredients: [],
-      directions: [],
-   )
-  end
+  # def recipe_params
+  #   params.require(:recipe).permit(
+  #     :id, 
+  #     :name, 
+  #     :recipe_type, 
+  #     :region, 
+  #     :vegan, 
+  #     :vegetarian, 
+  #     :pescetarian,
+  #     :photo, 
+  #     ingredients: [],
+  #     directions: [],
+  #  )
+  # end
 
 end
