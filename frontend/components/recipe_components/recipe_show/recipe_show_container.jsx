@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import RecipeShow from './recipe_show';
+import  RecipeShow  from './recipe_show';
 import { fetchRecipe, editRecipe } from '../../../actions/recipe_actions';
 import { receiveCurrentUser } from '../../../actions/session_actions';
 

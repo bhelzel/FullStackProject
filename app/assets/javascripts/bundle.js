@@ -1127,9 +1127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var RecipeIndexItem = function RecipeIndexItem(_ref) {
   var recipe = _ref.recipe,
-      currentUser = _ref.currentUser,
-      likeRecipe = _ref.likeRecipe,
-      unLikeRecipe = _ref.unLikeRecipe;
+      currentUser = _ref.currentUser;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "recipe-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1144,11 +1142,7 @@ var RecipeIndexItem = function RecipeIndexItem(_ref) {
     className: "show-link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "recipe-name"
-  }, recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return likeRecipe(recipe.id);
-    }
-  })));
+  }, recipe.name))));
 };
 
 /***/ }),
@@ -1215,8 +1209,6 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recipe_index_item__WEBPACK_IMPORTED_MODULE_2__["RecipeIndexItem"], {
           recipe: recipe,
           currentUser: _this.props.currentUser,
-          likeRecipe: _this.props.likeRecipe,
-          unLikeRecipe: _this.props.unLikeRecipe,
           key: recipe.id
         });
       }));
@@ -1260,12 +1252,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchAllRecipes: function fetchAllRecipes() {
       return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllRecipes"])());
-    },
-    likeRecipe: function likeRecipe(recipeId) {
-      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__["likeRecipe"])(recipeId));
-    },
-    unLikeRecipe: function unLikeRecipe(recipeId) {
-      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__["unLikeRecipe"])(recipeId));
     }
   };
 };
@@ -1330,12 +1316,9 @@ function (_React$Component) {
         return null;
       }
 
-      console.log(this.props.recipe.id);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        to: "/recipes/".concat(this.props.recipe.id, "/edit")
-      }, "Edit Recipe")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.recipe.photoUrl,
@@ -2093,15 +2076,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _recipes_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recipes_reducer */ "./frontend/reducers/recipes_reducer.js");
-/* harmony import */ var _likes_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./likes_reducer */ "./frontend/reducers/likes_reducer.js");
 
 
-
+ // import likes from './likes_reducer';
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  recipes: _recipes_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  likes: _likes_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  recipes: _recipes_reducer__WEBPACK_IMPORTED_MODULE_2__["default"] // likes
+
 }));
 
 /***/ }),
@@ -2122,43 +2104,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 }));
-
-/***/ }),
-
-/***/ "./frontend/reducers/likes_reducer.js":
-/*!********************************************!*\
-  !*** ./frontend/reducers/likes_reducer.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
-
-
-
-var likesReducer = function likesReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
-
-  switch (action.type) {
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      return Object.assign({}, state, action.payload.likes);
-
-    case _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_RECIPE"]:
-      console.log(state);
-      console.log(action);
-      return Object.assign({}, state, action.payload.likes);
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (likesReducer);
 
 /***/ }),
 
@@ -2445,9 +2390,7 @@ var postRecipe = function postRecipe(recipe) {
   return $.ajax({
     url: '/api/recipes',
     method: 'POST',
-    data: {
-      'recipe': recipe
-    },
+    data: recipe,
     contentType: false,
     processData: false
   });

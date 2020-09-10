@@ -20,8 +20,6 @@ class RecipesIndex extends React.Component {
             <RecipeIndexItem
               recipe={recipe}
               currentUser={this.props.currentUser}
-              likeRecipe={this.props.likeRecipe}
-              unLikeRecipe={this.props.unLikeRecipe}
               key={recipe.id}
             />
         ))}

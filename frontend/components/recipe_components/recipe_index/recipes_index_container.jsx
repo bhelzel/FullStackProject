@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { fetchAllRecipes, likeRecipe, unLikeRecipe } from '../../../actions/recipe_actions';
+import { fetchAllRecipes } from '../../../actions/recipe_actions';
 import RecipesIndex from './recipes_index';
 
 const mapStateToProps = state => ({
@@ -9,9 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllRecipes: () => dispatch(fetchAllRecipes()),
-  likeRecipe: recipeId => dispatch(likeRecipe(recipeId)),
-  unLikeRecipe: recipeId => dispatch(unLikeRecipe(recipeId))
+  fetchAllRecipes: () => dispatch(fetchAllRecipes())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesIndex);
