@@ -1,0 +1,32 @@
+.recipe-show {
+  display: inline;
+  width: 100%;
+  height: 100vh;
+}
+.recipe-photo {
+  max-width: 250px;
+  max-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.ingredients-div {
+  line-height: 1.5;
+}
+.ingredient {
+  list-style: square;
+}
+.directions-div {
+  margin-right: 40px;
+  line-height: 1.5;
+}
+.direction {
+  list-style: lower-roman;
+}
+
+.rec-info {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+}

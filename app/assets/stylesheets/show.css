@@ -168,11 +168,7 @@
   width: 25%;
   justify-self: right;
 }
-.recipe-show {
-  display: inline;
-  width: 100%;
-  height: 100vh;
-}
+
 
 .show-link {
   text-decoration: none;

@@ -26,19 +26,22 @@ class Api::RecipesController < ApplicationController
 
   def create
 
-    @recipe = Recipe.new(params.require(:recipe).permit(
-        :id,
-        :name,
-        :recipe_type,
-        :region, 
-        :vegan, 
-        :vegetarian, 
-        :pescetarian,
-        :photo, 
-        ingredients: [],
-        directions: [],
-      )
-    )
+    debugger
+    
+    recipe = {
+      'id': params.id,
+      'name': params.name,
+      'recipe_type': params.recipe_type,
+      'region': params.region,
+      'vegan': params.vegan,
+      'vegetarian': params.vegetarian,
+      'pescetarian': params.pescetarian,
+      'photo': params.photo,
+      'ingredients': params.ingredients,
+      'directions': params.directions
+    }
+
+    @recipe = Recipe.new(recipe)
     # .except(:format, :controller, :action)
     
     if @recipe.save!
