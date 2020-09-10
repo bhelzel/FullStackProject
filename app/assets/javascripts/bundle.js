@@ -1332,26 +1332,40 @@ function (_React$Component) {
         className: "recipe-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.recipe.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row-1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "rec-show-name"
+      }, this.props.recipe.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.recipe.photoUrl,
-        className: "recipe-photo"
+        className: "recipe-photo-show"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ingredients-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Ingredients:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.recipe.ingredients.map(function (ingredient, i) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "ing-title"
+      }, "Ingredients:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.recipe.ingredients.map(function (ingredient, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "ingredient",
           key: i
         }, ingredient);
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "directions-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Directions:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.recipe.directions.map(function (direction, i) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "dir-title"
+      }, "Directions:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ol-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.recipe.directions.map(function (direction, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "direction",
           key: i
         }, direction);
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rec-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
         onClick: function onClick() {
           return _this2.deleteRecipe();
