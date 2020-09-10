@@ -1282,9 +1282,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1299,9 +1299,13 @@ function (_React$Component) {
   _inherits(RecipeShow, _React$Component);
 
   function RecipeShow(props) {
+    var _this;
+
     _classCallCheck(this, RecipeShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(RecipeShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(RecipeShow).call(this, props));
+    _this.deleteRecipe = _this.deleteRecipe.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(RecipeShow, [{
@@ -1310,8 +1314,16 @@ function (_React$Component) {
       this.props.fetchRecipe(this.props.match.params.recipeId);
     }
   }, {
+    key: "deleteRecipe",
+    value: function deleteRecipe() {
+      console.log('test');
+      this.props.deleteRecipe(this.props.recipe.id);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       if (this.props.recipe === undefined || this.props.recipe.ingredients === undefined) {
         return null;
       }
@@ -1339,7 +1351,12 @@ function (_React$Component) {
         }, direction);
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rec-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No"))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/",
+        onClick: function onClick() {
+          return _this2.deleteRecipe();
+        }
+      }, "Delete Recipe")));
     }
   }]);
 
@@ -1382,8 +1399,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchRecipe: function fetchRecipe(recipeId) {
       return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__["fetchRecipe"])(recipeId));
     },
-    editRecipe: function editRecipe(recipe) {
-      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__["editRecipe"])(recipe));
+    deleteRecipe: function deleteRecipe(recipeId) {
+      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_3__["deleteRecipe"])(recipeId));
     }
   };
 };
@@ -1954,13 +1971,7 @@ function (_React$Component) {
         className: "user-info-header-email"
       }, this.props.currentUser.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "user-info-header-greeting"
-      }, "Tell us about yourself!"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-search-container"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-yums"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Favorite Recipes:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Go to your feed and click the \"Like\" button to save recipes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "liked-recipes"
-      }, console.log(this.props.likes))));
+      }, "Tell us about yourself!"))));
     }
   }]);
 
@@ -1994,8 +2005,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentUser: state.entities.users[state.session.id],
-    likes: state.entities.likes
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -2406,7 +2416,7 @@ var editRecipe = function editRecipe(recipeId) {
 };
 var deleteRecipe = function deleteRecipe(recipeId) {
   return $.ajax({
-    url: "api/recipe/".concat(recipeId),
+    url: "api/recipes/".concat(recipeId),
     method: 'DELETE'
   });
 };

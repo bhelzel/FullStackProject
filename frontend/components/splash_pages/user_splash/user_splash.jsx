@@ -23,16 +23,6 @@ class UserSplash extends React.Component {
             <span className="user-info-header-greeting">Tell us about yourself!</span>
           </div>
         </div>
-        <div className="user-search-container">
-
-        </div>
-        <div className="user-yums">
-          <h2>Favorite Recipes:</h2>
-          <p>Go to your feed and click the "Like" button to save recipes</p>
-          <div className="liked-recipes">
-            { console.log(this.props.likes) }
-          </div>
-        </div>
       </div>
     )
   }

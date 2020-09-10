@@ -1,14 +1,20 @@
 import React from 'react';
-import Link from 'react-router-dom';
+import { Link }from 'react-router-dom';
 
 class RecipeShow extends React.Component {
 
   constructor(props) {
     super(props);
+    this.deleteRecipe = this.deleteRecipe.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchRecipe(this.props.match.params.recipeId);
+  }
+
+  deleteRecipe() {
+    console.log('test');
+    this.props.deleteRecipe(this.props.recipe.id);
   }
 
   render() {
@@ -17,7 +23,6 @@ class RecipeShow extends React.Component {
     }
     return (
       <div className="recipe-show">
-        {/* <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit Recipe</Link></button> */}
         <div className="recipe">
           <h2>{this.props.recipe.name}</h2>
           <img src={this.props.recipe.photoUrl} className="recipe-photo"/>
@@ -52,6 +57,9 @@ class RecipeShow extends React.Component {
             <h5>Vegetarian: {this.props.recipe.vegetarian ? "Yes!" : "No"}</h5>
             <h5>Pescetarian: {this.props.recipe.pescetarian ? "Yes!" : "No"}</h5>
           </div>
+        </div>
+        <div>
+          <Link to="/" onClick={() => this.deleteRecipe()}>Delete Recipe</Link>  
         </div>
       </div>
     )

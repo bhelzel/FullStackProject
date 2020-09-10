@@ -26,8 +26,6 @@ class Api::RecipesController < ApplicationController
 
   def create
 
-    debugger
-
     @recipe = Recipe.new(params.require(:recipe).permit(
         :id,
         :name,
