@@ -11,12 +11,15 @@ class IndexSplash extends React.Component {
     return (
       <div className="show" id="index-show">
         <div className="splash-header">
-          <div className="pasta-img-container"></div>
+          {/* <div className="pasta-img-container"></div>
           <div className="index-search-container"></div>
-          <div className="pizza-img-container"></div> 
+          <div className="pizza-img-container"></div>  */}
         </div>
         <div className="recipes">
-          <h5 className="recipes-index-text">Classic Italian recipes from across the country, just for you:</h5>
+          <div className="recipes-index-title">
+            <p className="recipes-index-text">Good home cooking for family and friends</p>
+            <p className="divider">______________________</p>
+          </div>
           <RecipesIndex />
         </div>
       </div>

@@ -1878,17 +1878,15 @@ function (_React$Component) {
         id: "index-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pasta-img-container"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "index-search-container"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pizza-img-container"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipes"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "recipes-index-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "recipes-index-text"
-      }, "Classic Italian recipes from across the country, just for you:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recipe_components_recipe_index_recipes_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, "Good home cooking for family and friends"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "divider"
+      }, "______________________")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recipe_components_recipe_index_recipes_index_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
     }
   }]);
 

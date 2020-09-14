@@ -139,9 +139,13 @@
   align-items: center;
   height: 350px;
   width: 100%;
+  margin-left: .25%;
+  background-color: seashell;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-.pasta-img-container {
+/* .pasta-img-container {
   background-image: url('https://simply-delicious-food.com/wp-content/uploads/2017/04/easy-cheese-and-tomato-pasta-bake-1.jpg');
   background-repeat: no-repeat;
   border-bottom-right-radius: 60%;
@@ -151,13 +155,13 @@
   height: 350px;
   width: 25%;
   justify-self: left;
-}
+} */
 
 .index-search-container {
   height: 350px;
   width: 50%;
 }
-.pizza-img-container {
+/* .pizza-img-container {
   background-image: url('http://www.pizzeoli.com/wp-content/uploads/2017/08/pizza-in-saint-louis.jpg');
   background-repeat: no-repeat;
   border-bottom-left-radius: 60%;
@@ -168,7 +172,7 @@
   width: 25%;
   justify-self: right;
 }
-
+ */
 
 .show-link {
   text-decoration: none;
@@ -179,3 +183,29 @@
 .show-link:hover {
   cursor: pointer;
 }
+
+.recipes-index-text {
+  font-family: 'Kalam', cursive;
+  font-size: 60px;
+  height: 100px;
+  justify-self: top;
+  margin: 0px;
+  padding: 0px;
+}
+
+.recipes-index-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.divider {
+  font-size: 20px;
+  margin: 0px;
+  padding: 0px;
+}
+
