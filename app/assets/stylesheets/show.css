@@ -190,7 +190,6 @@
   height: 100px;
   justify-self: top;
   margin: 0px;
-  padding: 0px;
 }
 
 .recipes-index-title {
@@ -200,12 +199,10 @@
   align-items: center;
   height: 140px;
   margin: 0px;
-  padding: 0px;
 }
 
 .divider {
   font-size: 20px;
   margin: 0px;
-  padding: 0px;
 }
 

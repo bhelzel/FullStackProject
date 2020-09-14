@@ -1878,7 +1878,35 @@ function (_React$Component) {
         id: "index-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-header"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Pasta"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Vegetarian"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Appetizers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Italian"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Spicy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Beef"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Asian"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Healthy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Seafood"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Salads"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Mexican"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Savory"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Dessert"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "filter-option"
+      }, "Middle Eastern")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipes"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipes-index-title"

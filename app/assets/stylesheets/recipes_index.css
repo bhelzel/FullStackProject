@@ -64,3 +64,14 @@
   color: #FFFFFF;
   justify-content: center;
 }
+
+.splash-header {
+  
+}
+
+.filter-option {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 60%;
+  border: black solid 2px;
+}
