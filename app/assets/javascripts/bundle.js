@@ -1188,12 +1188,12 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllRecipes();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.props.fetchAllRecipes();
-    }
+    } // componentDidUpdate(prevProps, nextProps) {
+    //   if(prevProps.recipes.length != nextProps.recipes.length) {
+    //     this.props.fetchAllRecipes();
+    //   }
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -1303,6 +1303,9 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(RecipeShow).call(this, props));
     _this.deleteRecipe = _this.deleteRecipe.bind(_assertThisInitialized(_this));
+    _this.state = {
+      redirect: false
+    };
     return _this;
   }
 
@@ -1314,7 +1317,10 @@ function (_React$Component) {
   }, {
     key: "deleteRecipe",
     value: function deleteRecipe() {
-      this.props.deleteRecipe(this.props.recipe.id); // return <Redirect to="/" />
+      this.props.deleteRecipe(this.props.recipe.id);
+      this.setState({
+        redirect: true
+      });
     }
   }, {
     key: "render",
@@ -1323,6 +1329,12 @@ function (_React$Component) {
 
       if (this.props.recipe === undefined || this.props.recipe.ingredients === undefined) {
         return null;
+      }
+
+      if (this.state.redirect === true) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/"
+        });
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

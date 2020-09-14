@@ -12,9 +12,11 @@ class RecipesIndex extends React.Component {
     this.props.fetchAllRecipes();
   }
 
-  componentDidUpdate() {
-    this.props.fetchAllRecipes();
-  }
+  // componentDidUpdate(prevProps, nextProps) {
+  //   if(prevProps.recipes.length != nextProps.recipes.length) {
+  //     this.props.fetchAllRecipes();
+  //   }
+  // }
 
   render() {
     return (

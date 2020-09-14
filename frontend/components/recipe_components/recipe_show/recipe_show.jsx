@@ -7,6 +7,7 @@ class RecipeShow extends React.Component {
   constructor(props) {
     super(props);
     this.deleteRecipe = this.deleteRecipe.bind(this);
+    this.state = { redirect: false }
   }
 
   componentDidMount() {
@@ -15,12 +16,15 @@ class RecipeShow extends React.Component {
 
   deleteRecipe() {
     this.props.deleteRecipe(this.props.recipe.id);
-    // return <Redirect to="/" />
+    this.setState({ redirect: true });
   }
 
   render() {
     if(this.props.recipe === undefined || this.props.recipe.ingredients === undefined) {
       return null;
+    }
+    if(this.state.redirect === true) {
+      return <Redirect to={"/"} />
     }
     return (
       <div className="recipe-show">

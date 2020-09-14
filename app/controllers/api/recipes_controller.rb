@@ -26,8 +26,6 @@ class Api::RecipesController < ApplicationController
 
   def create
 
-    debugger
-    
     recipe = {}
     recipe['name'] = params['name']
     recipe['recipe_type'] = params['recipe_type']
@@ -40,7 +38,6 @@ class Api::RecipesController < ApplicationController
     recipe['directions'] = params['directions']
 
     @recipe = Recipe.new(recipe)
-    # .except(:format, :controller, :action)
     
     if @recipe.save!
       render "api/recipes/show"
@@ -52,24 +49,7 @@ class Api::RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    # render "api/recipes/index"
+    render "api/recipes/index"
   end
-
-  # private
-
-  # def recipe_params
-  #   params.require(:recipe).permit(
-  #     :id, 
-  #     :name, 
-  #     :recipe_type, 
-  #     :region, 
-  #     :vegan, 
-  #     :vegetarian, 
-  #     :pescetarian,
-  #     :photo, 
-  #     ingredients: [],
-  #     directions: [],
-  #  )
-  # end
 
 end
