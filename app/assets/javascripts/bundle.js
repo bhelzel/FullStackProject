@@ -596,8 +596,6 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      console.log(this.state.photo); // let recipe = {};
-
       var recipeParams = new FormData();
       recipeParams.append('name', this.state.name);
       recipeParams.append('recipe_type', this.state.recipeType);
@@ -607,14 +605,7 @@ function (_React$Component) {
       recipeParams.append('pescetarian', this.state.pescetarian);
       recipeParams.append('photo', this.state.photo);
       recipeParams.append('ingredients', this.state.ingredients);
-      recipeParams.append('directions', this.state.directions); // let recipe = Object.assign(this.state);
-      // Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
-      // delete recipe.recipeType;
-      // let recipe = {'recipe': recipeParams};
-      // console.log(recipe);
-      // let recipe = {'recipe': recipeParams};
-      // console.log(recipe);
-
+      recipeParams.append('directions', this.state.directions);
       this.props.postRecipe(recipeParams);
     }
   }, {
@@ -1199,6 +1190,11 @@ function (_React$Component) {
       this.props.fetchAllRecipes();
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.props.fetchAllRecipes();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -1272,6 +1268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1289,6 +1286,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1316,8 +1314,7 @@ function (_React$Component) {
   }, {
     key: "deleteRecipe",
     value: function deleteRecipe() {
-      console.log('test');
-      this.props.deleteRecipe(this.props.recipe.id);
+      this.props.deleteRecipe(this.props.recipe.id); // return <Redirect to="/" />
     }
   }, {
     key: "render",
@@ -1365,8 +1362,7 @@ function (_React$Component) {
         className: "row-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rec-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return _this2.deleteRecipe();
         }

@@ -31,8 +31,6 @@ export default class CreateForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state.photo);
-        // let recipe = {};
         let recipeParams = new FormData();
         recipeParams.append('name', this.state.name);
         recipeParams.append('recipe_type', this.state.recipeType);
@@ -43,13 +41,6 @@ export default class CreateForm extends React.Component {
         recipeParams.append('photo', this.state.photo);
         recipeParams.append('ingredients', this.state.ingredients);
         recipeParams.append('directions', this.state.directions);
-        // let recipe = Object.assign(this.state);
-        // Object.defineProperty(recipe, 'recipe_type', Object.getOwnPropertyDescriptor(recipe, 'recipeType'));
-        // delete recipe.recipeType;
-        // let recipe = {'recipe': recipeParams};
-        // console.log(recipe);
-        // let recipe = {'recipe': recipeParams};
-        // console.log(recipe);
         this.props.postRecipe(recipeParams);
     }
 

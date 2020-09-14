@@ -28,18 +28,16 @@ class Api::RecipesController < ApplicationController
 
     debugger
     
-    recipe = {
-      'id': params.id,
-      'name': params.name,
-      'recipe_type': params.recipe_type,
-      'region': params.region,
-      'vegan': params.vegan,
-      'vegetarian': params.vegetarian,
-      'pescetarian': params.pescetarian,
-      'photo': params.photo,
-      'ingredients': params.ingredients,
-      'directions': params.directions
-    }
+    recipe = {}
+    recipe['name'] = params['name']
+    recipe['recipe_type'] = params['recipe_type']
+    recipe['region'] = params['region']
+    recipe['vegan'] = params['vegan']
+    recipe['vegetarian'] = params['vegetarian']
+    recipe['pescetarian'] = params['pescetarian']
+    recipe['photo'] = params['photo']
+    recipe['ingredients'] = params['ingredients']
+    recipe['directions'] = params['directions']
 
     @recipe = Recipe.new(recipe)
     # .except(:format, :controller, :action)
@@ -51,10 +49,10 @@ class Api::RecipesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    render "api/recipes/index"
+    # render "api/recipes/index"
   end
 
   # private

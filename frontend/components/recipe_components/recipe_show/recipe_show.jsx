@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link }from 'react-router-dom';
+import { Link, Redirect }from 'react-router-dom';
+import { useHistory} from 'react-router';
 
 class RecipeShow extends React.Component {
 
@@ -13,8 +14,8 @@ class RecipeShow extends React.Component {
   }
 
   deleteRecipe() {
-    console.log('test');
     this.props.deleteRecipe(this.props.recipe.id);
+    // return <Redirect to="/" />
   }
 
   render() {
@@ -67,7 +68,7 @@ class RecipeShow extends React.Component {
           </div>
         </div>
         <div>
-          <Link to="/" onClick={() => this.deleteRecipe()}>Delete Recipe</Link>  
+          <button onClick={() => this.deleteRecipe()}>Delete Recipe</button>  
         </div>
       </div>
     )

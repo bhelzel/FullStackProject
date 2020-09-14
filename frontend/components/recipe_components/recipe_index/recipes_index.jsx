@@ -12,6 +12,10 @@ class RecipesIndex extends React.Component {
     this.props.fetchAllRecipes();
   }
 
+  componentDidUpdate() {
+    this.props.fetchAllRecipes();
+  }
+
   render() {
     return (
       <div className="recipes-index">
