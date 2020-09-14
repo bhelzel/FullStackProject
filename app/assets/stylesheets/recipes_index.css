@@ -12,6 +12,7 @@
   grid-column-gap: 10px;
   grid-row-gap: 40px;
   margin-top: 60px;
+  margin-bottom: 100px;
 }
 
 .recipe-container {
@@ -27,6 +28,7 @@
   width: 290px;
   border: 5px solid #4B9B96;
   border-radius: 8px;
+  padding: 10px;
 }
 
 .recipes-index-text {
