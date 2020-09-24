@@ -104,6 +104,10 @@ export default class CreateForm extends React.Component {
                 </div>
                 <div className="ingredient-div"> 
                     <div className="ingredients">
+                        <div className="add-div">
+                            <textarea type="text" className="textarea-input" id="ingredient-input" placeholder="Ingredient"/>
+                            <button id="add-ingredient" className="add-btn" onClick={this.update('ingredients')} >Add Ingredient</button>
+                        </div>                      
                         <ul className="list" id="ingredient-list">
                             {
                                 this.state.ingredients.length > 0 ?
@@ -113,12 +117,12 @@ export default class CreateForm extends React.Component {
                                 ''
                             }
                         </ul>  
-                        <div className="add-div">
-                            <textarea type="text" className="textarea-input" id="ingredient-input" placeholder="Ingredient"/>
-                            <button id="add-ingredient" className="add-btn" onClick={this.update('ingredients')} >Add Ingredient</button>
-                        </div>                      
                     </div>
                     <div className="directions">
+                        <div className="add-div">
+                            <textarea type="text" id="direction-input" className="textarea-input" placeholder="Direction"/>
+                            <button id="add-direction" className="add-btn" onClick={this.update('directions')}>Add Direction</button>
+                        </div>        
                         <ol className="list" id="direction-list">
                             {
                                 this.state.directions.length > 0 ?
@@ -128,10 +132,6 @@ export default class CreateForm extends React.Component {
                                 ''
                             }
                         </ol>
-                        <div className="add-div">
-                            <textarea type="text" id="direction-input" className="textarea-input" placeholder="Direction"/>
-                            <button id="add-direction" className="add-btn" onClick={this.update('directions')}>Add Direction</button>
-                        </div>        
                     </div>
                 </div>
                 <div className="diet-div">

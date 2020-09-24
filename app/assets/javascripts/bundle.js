@@ -705,14 +705,7 @@ function (_React$Component) {
         className: "ingredient-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ingredients"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "list",
-        id: "ingredient-list"
-      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: i
-        }, ingredient);
-      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "add-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         type: "text",
@@ -723,16 +716,16 @@ function (_React$Component) {
         id: "add-ingredient",
         className: "add-btn",
         onClick: this.update('ingredients')
-      }, "Add Ingredient"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "directions"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+      }, "Add Ingredient")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "list",
-        id: "direction-list"
-      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction, i) {
+        id: "ingredient-list"
+      }, this.state.ingredients.length > 0 ? this.state.ingredients.map(function (ingredient, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: i
-        }, direction);
-      }) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, ingredient);
+      }) : '')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "directions"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "add-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         type: "text",
@@ -743,7 +736,14 @@ function (_React$Component) {
         id: "add-direction",
         className: "add-btn",
         onClick: this.update('directions')
-      }, "Add Direction")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Add Direction")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+        className: "list",
+        id: "direction-list"
+      }, this.state.directions.length > 0 ? this.state.directions.map(function (direction, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: i
+        }, direction);
+      }) : ''))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "diet-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "check-container"
