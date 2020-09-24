@@ -1197,6 +1197,9 @@ function (_React$Component) {
     _classCallCheck(this, RecipesIndex);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(RecipesIndex).call(this, props));
+    _this.state = {
+      recipes: _this.props.recipes
+    };
 
     _this.handleDeleteRecipe.bind(_assertThisInitialized(_this));
 
@@ -1216,9 +1219,12 @@ function (_React$Component) {
   }, {
     key: "handleDeleteRecipe",
     value: function handleDeleteRecipe() {
-      newRecipes = this.props.recipes.filter(function (recipe) {
+      var newRecipes;
+      newRecipes = Object.values(this.props.recipes).filter(function (recipe) {
         return recipe !== null;
       });
+      console.log(newRecipes); // this.props.recipes = newRecipes;
+
       this.setState({
         recipes: newRecipes
       });
@@ -1228,6 +1234,7 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.state.recipes);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipes-index"
       }, Object.values(this.props.recipes).map(function (recipe) {

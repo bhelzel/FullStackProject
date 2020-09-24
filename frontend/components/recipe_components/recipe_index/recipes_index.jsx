@@ -6,6 +6,9 @@ class RecipesIndex extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      recipes: this.props.recipes
+    };
     this.handleDeleteRecipe.bind(this);
   }
 
@@ -20,13 +23,22 @@ class RecipesIndex extends React.Component {
   // }
 
   handleDeleteRecipe() {
-    newRecipes = this.props.recipes.filter(recipe => {
+
+    let newRecipes;
+
+    newRecipes = Object.values(this.props.recipes).filter(recipe => {
       return recipe !== null;
     });
+
+    console.log(newRecipes);
+
+    // this.props.recipes = newRecipes;
+
     this.setState({ recipes: newRecipes});
   }
 
   render() {
+    console.log(this.state.recipes);
     return (
       <div className="recipes-index">
         {
