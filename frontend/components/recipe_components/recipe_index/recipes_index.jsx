@@ -6,6 +6,7 @@ class RecipesIndex extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleDeleteRecipe.bind(this);
   }
 
   componentDidMount() {
@@ -18,16 +19,24 @@ class RecipesIndex extends React.Component {
   //   }
   // }
 
+  handleDeleteRecipe() {
+    newRecipes = this.props.recipes.filter(recipe => {
+      return recipe !== null;
+    });
+    this.setState({ recipes: newRecipes});
+  }
+
   render() {
     return (
       <div className="recipes-index">
         {
           Object.values(this.props.recipes).map(recipe => (
-            <RecipeIndexItem
-              recipe={recipe}
-              currentUser={this.props.currentUser}
-              key={recipe.id}
-            />
+            recipe == null ? this.handleDeleteRecipe() : 
+              <RecipeIndexItem
+                recipe={recipe}
+                currentUser={this.props.currentUser}
+                key={recipe.id}
+              />
         ))}
       </div>
     )

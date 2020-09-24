@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class CreateForm extends React.Component {
     
@@ -12,6 +13,7 @@ export default class CreateForm extends React.Component {
             vegetarian: false,
             pescetarian: false,
             photo: null,
+            redirect: false,
             ingredients: [],
             directions: []
         };
@@ -42,6 +44,7 @@ export default class CreateForm extends React.Component {
         recipeParams.append('ingredients', this.state.ingredients);
         recipeParams.append('directions', this.state.directions);
         this.props.postRecipe(recipeParams);
+        this.setState({ redirect: true });
     }
 
     update(field) {
@@ -84,6 +87,9 @@ export default class CreateForm extends React.Component {
 
     render() {
         this.checkState();
+        if (this.state.redirect === true) {
+            <Redirect to={"/"} />
+        }
         return(
             <form className="create-form" onSubmit={this.handleSubmit}>
                 <div className="top-div">

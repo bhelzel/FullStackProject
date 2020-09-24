@@ -7,7 +7,7 @@ class RecipeShow extends React.Component {
   constructor(props) {
     super(props);
     this.deleteRecipe = this.deleteRecipe.bind(this);
-    this.state = { redirect: false }
+    this.state = { redirect: false };
   }
 
   componentDidMount() {
@@ -72,7 +72,7 @@ class RecipeShow extends React.Component {
           </div>
         </div>
         <div>
-          <button onClick={() => this.deleteRecipe()}>Delete Recipe</button>  
+          <Link to="/"><button onClick={() => this.deleteRecipe()}>Delete Recipe</button></Link> 
         </div>
       </div>
     )
