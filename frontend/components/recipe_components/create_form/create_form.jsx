@@ -88,8 +88,9 @@ export default class CreateForm extends React.Component {
     render() {
         this.checkState();
         if (this.state.redirect === true) {
-            <Redirect to={"/"} />
-        }
+            console.log('true');
+            <Redirect from={"/createrecipe"} to={"/"} />
+        };
         return(
             <form className="create-form" onSubmit={this.handleSubmit}>
                 <div className="top-div">

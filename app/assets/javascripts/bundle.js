@@ -665,11 +665,14 @@ function (_React$Component) {
       this.checkState();
 
       if (this.state.redirect === true) {
+        console.log('true');
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          from: "/createrecipe",
           to: "/"
         });
       }
 
+      ;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create-form",
         onSubmit: this.handleSubmit
