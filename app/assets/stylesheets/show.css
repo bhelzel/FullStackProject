@@ -207,5 +207,8 @@
 }
 
 .delete-button {
-  
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  margin-top: 1%;
 }
