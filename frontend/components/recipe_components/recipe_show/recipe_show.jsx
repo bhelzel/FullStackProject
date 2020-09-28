@@ -72,7 +72,7 @@ class RecipeShow extends React.Component {
           </div>
         </div>
         <div>
-          <Link to="/"><button onClick={() => this.deleteRecipe()}>Delete Recipe</button></Link> 
+          <Link to="/"><button className="delete-button" onClick={() => this.deleteRecipe()}>Delete Recipe</button></Link> 
         </div>
       </div>
     )
