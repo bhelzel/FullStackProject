@@ -26,6 +26,10 @@
   outline: none
 }
 
+.login-signup-button:hover {
+  background-color: #307c77;
+}
+
 .login-signup:active {
   outline: none;
 }
