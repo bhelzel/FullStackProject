@@ -89,8 +89,10 @@
 .delete-container {
   margin-top: 1%;
   display: flex;
+  margin-bottom: 5%;
 }
 
 .delete-button {
   background-color: teal;
+  height: 150%;
 }
