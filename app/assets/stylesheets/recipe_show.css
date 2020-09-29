@@ -85,3 +85,12 @@
 .ing-title {
   font-size: 28px;
 }
+
+.delete-container {
+  margin-top: 2%;
+  display: flex;
+}
+
+.delete-button {
+
+}

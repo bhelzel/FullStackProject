@@ -1413,9 +1413,12 @@ function (_React$Component) {
         className: "row-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rec-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Region: ", this.props.recipe.region), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Recipe Type: ", this.props.recipe.recipe_type), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegan: ", this.props.recipe.vegan ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vegetarian: ", this.props.recipe.vegetarian ? "Yes!" : "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pescetarian: ", this.props.recipe.pescetarian ? "Yes!" : "No")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "delete-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "delete-button",
         onClick: function onClick() {
           return _this2.deleteRecipe();
         }
