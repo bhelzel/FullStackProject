@@ -6,7 +6,7 @@ class RecipeShow extends React.Component {
 
   constructor(props) {
     super(props);
-    this.deleteRecipe = this.deleteRecipe.bind(this);
+    this.removeRecipe = this.removeRecipe.bind(this);
     this.state = { redirect: false };
   }
 
@@ -14,7 +14,7 @@ class RecipeShow extends React.Component {
     this.props.fetchRecipe(this.props.match.params.recipeId);
   }
 
-  deleteRecipe() {
+  removeRecipe() {
     this.props.deleteRecipe(this.props.recipe.id);
     this.setState({ redirect: true });
   }
@@ -72,7 +72,7 @@ class RecipeShow extends React.Component {
           </div>
         </div>
         <div className="delete-container">
-          <Link to="/"><button className="delete-button" onClick={() => this.deleteRecipe()}>Delete Recipe</button></Link> 
+          <Link to="/"><button className="delete-button" onClick={() => this.removeRecipe()}>Delete Recipe</button></Link> 
         </div>
       </div>
     )

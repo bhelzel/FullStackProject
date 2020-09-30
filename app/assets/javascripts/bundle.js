@@ -667,12 +667,10 @@ function (_React$Component) {
       if (this.state.redirect === true) {
         console.log('true');
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-          from: "/createrecipe",
           to: "/"
         });
       }
 
-      ;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create-form",
         onSubmit: this.handleSubmit
@@ -1341,7 +1339,7 @@ function (_React$Component) {
     _classCallCheck(this, RecipeShow);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(RecipeShow).call(this, props));
-    _this.deleteRecipe = _this.deleteRecipe.bind(_assertThisInitialized(_this));
+    _this.removeRecipe = _this.removeRecipe.bind(_assertThisInitialized(_this));
     _this.state = {
       redirect: false
     };
@@ -1354,8 +1352,8 @@ function (_React$Component) {
       this.props.fetchRecipe(this.props.match.params.recipeId);
     }
   }, {
-    key: "deleteRecipe",
-    value: function deleteRecipe() {
+    key: "removeRecipe",
+    value: function removeRecipe() {
       this.props.deleteRecipe(this.props.recipe.id);
       this.setState({
         redirect: true
@@ -1371,7 +1369,7 @@ function (_React$Component) {
       }
 
       if (this.state.redirect === true) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
           to: "/"
         });
       }
@@ -1420,7 +1418,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "delete-button",
         onClick: function onClick() {
-          return _this2.deleteRecipe();
+          return _this2.removeRecipe();
         }
       }, "Delete Recipe"))));
     }
