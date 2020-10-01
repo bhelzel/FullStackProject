@@ -19,7 +19,7 @@ import CreateRecipeContainer from './recipe_components/create_form/create_form_c
 import EditRecipeContainer from './recipe_components/edit_form/edit_form_container';
 
 function initializeReactGA() {
-  ReactGA.initialize('UA-123791717-1');
+  ReactGA.initialize('UA-179400965-1');
   ReactGA.pageview('/');
 }
 
