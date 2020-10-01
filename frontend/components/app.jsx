@@ -23,6 +23,8 @@ function initializeReactGA() {
   ReactGA.pageview('/');
 }
 
+initializeReactGA();
+
 const App = () => (
   <div className="wrapper">
     <SideBarContainer />
