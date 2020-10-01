@@ -7,6 +7,7 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import SideBarContainer from './side_bar/side_bar_container';
@@ -16,6 +17,11 @@ import IndexSplash from './splash_pages/index_splash/index_splash_container';
 import RecipeShowContainer from './recipe_components/recipe_show/recipe_show_container';
 import CreateRecipeContainer from './recipe_components/create_form/create_form_container';
 import EditRecipeContainer from './recipe_components/edit_form/edit_form_container';
+
+function initializeReactGA() {
+  ReactGA.initialize('UA-123791717-1');
+  ReactGA.pageview('/');
+}
 
 const App = () => (
   <div className="wrapper">
